@@ -11,8 +11,6 @@ public class BoneProjectile : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
-
         if(other.tag == "Enemy"){
             CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
             characterHealth.Damage(_ProjectileDamage);
