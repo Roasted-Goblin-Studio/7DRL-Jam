@@ -1,6 +1,9 @@
 name: Acquire activation file
-on:
+on: 
   workflow_dispatch: {}
+  push:
+    branches:
+      - devops/pipeline
 jobs:
   activation:
     name: Request manual activation file 🔑
