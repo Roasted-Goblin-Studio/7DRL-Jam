@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
     protected Rigidbody2D _ProjectileRigidBody2D;
     protected SpriteRenderer _ProjectileSpriteRender;
     protected Vector2 _ProjectileMovement;
-    protected ReturnObjectToPool _ProjectileReturnObjectToPool;
     protected Character _ProjectileOwner;
     protected ReturnObjectToPool _ReturnObjectToPool;
 
