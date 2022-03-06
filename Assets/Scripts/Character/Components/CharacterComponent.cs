@@ -13,6 +13,7 @@ public class CharacterComponent : MonoBehaviour
     public CharacterAchievements CharacterAchievements { get => _CharacterAchievements; set => _CharacterAchievements = value; }
     public CharacterInput CharacterInput { get => _CharacterInput; set => _CharacterInput = value; }
     public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
+    
 
     protected virtual void Awake(){
         _Character = GetComponent<Character>();

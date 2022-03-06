@@ -33,4 +33,8 @@ public class MouseCursor : CharacterComponent
         if (_MousePosition.x < transform.position.x && _CharacterMovement.FacingRight) _CharacterMovement.Flip();
         else if(_MousePosition.x > transform.position.x && !_CharacterMovement.FacingRight) _CharacterMovement.Flip(); 
     }
+
+    public Vector3 GetClampedDirectionofMouse(){
+        return Vector3.ClampMagnitude(_MousePosition, 1);
+    }
 }
