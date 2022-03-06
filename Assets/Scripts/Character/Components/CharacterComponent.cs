@@ -32,8 +32,8 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual void HandleInput(){
-        HandlePlayerInput();
-        HandleAIInput();
+        // HandlePlayerInput();
+        // HandleAIInput();
     }
 
     protected virtual bool HandlePlayerInput(){

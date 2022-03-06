@@ -1,121 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterMovement : CharacterComponent
 {
-    // Serialized
-    [SerializeField] private float _MovementSpeed;
-    [SerializeField] private float _MaxSpeed;
+	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
+	
+    private bool _FacingRight = true;       // For determining which way the player is currently facing.      
+    Vector3 Velocity = Vector3.zero;
+	private float _MovementSpeed = 7.5f; 
 
-    // Private
-    private float _HorizontalMovement;
-    private float _HorizontalForceApplied;
-    private float _VerticalMovement;
-    private float _VerticalForceApplied;
-    private float _MovementCompoundValue = 1f;
-    private float _ReverseForceApplied = 2f;
-    private bool _ApplyReverseForce;
 
-    // Public
-    public float VerticalMovement { get => _VerticalMovement; set => _VerticalMovement = value; }
-    public float HorizontalMovement { get => _HorizontalMovement; set => _HorizontalMovement = value; }
-    public float MovementSpeed { get => _MovementSpeed; set => _MovementSpeed = value; }
-    public float ReverseForceApplied { get => _ReverseForceApplied; set => _ReverseForceApplied = value; }
-    public bool ApplyReverseForce { get => _ApplyReverseForce; set => _ApplyReverseForce = value; }
-    
-    protected override void HandlePhysicsComponentFunction(){
-        CalcMovement();
+	protected override void Awake()
+	{
+		base.Awake();
+	}
+
+    protected override void Start()
+    {
+        base.Start();
+        //Initialising the force to use on the RigidBody in various ways
     }
 
-    protected override bool HandlePlayerInput()
-    {   
-        if(!base.HandlePlayerInput()) return false;
-        return true;
+    protected override void HandlePhysicsComponentFunction()
+    {
+        MoveCharacter();
+
     }
 
-    private void CalcMovement(){
-        CalcHorizontalMovement();
-        CalcVerticalMovement();
-        _Character.RigidBody2D.AddForce(new Vector2(_HorizontalForceApplied, _VerticalForceApplied), ForceMode2D.Impulse);
-    }
-
-    protected virtual void CalcHorizontalMovement(){
-        // Both botton pressed results in 0
-        if(Input.GetKey(CharacterInput.MovementLeftKeyCode) && Input.GetKey(CharacterInput.MovementRightKeyCode)){
-            HorizontalMovement = 0;
-        }
-        // Left movement
-        else if(Input.GetKey(CharacterInput.MovementLeftKeyCode)){
-            HorizontalMovement += -_MovementCompoundValue;
+    public void MoveCharacter()
+	{
+            float Horizontal = Input.GetAxisRaw("Horizontal");
+            float Vertical = Input.GetAxisRaw("Vertical");
         
-        // Right movement
-        }else if(Input.GetKey(CharacterInput.MovementRightKeyCode)){
-            HorizontalMovement += _MovementCompoundValue;
-        
-        // Slowing / Stopped
-        }else{
-            //ApplyReverseForce = false;
-            if(_Character.RigidBody2D.velocity.sqrMagnitude != 0){
-                //Debug.Log("Slowing down");
-                ApplyReverseForce = true;
-                if(_Character.RigidBody2D.velocity.x < 0){
-                    // Slow down left movement
-                    HorizontalMovement += _MovementCompoundValue;
-                }
-                else if(_Character.RigidBody2D.velocity.x > 0){
-                    // Slow down left movement
-                    HorizontalMovement += -_MovementCompoundValue;
-                }
-            }
-            else{
-                HorizontalMovement = 0;
-            } 
-            
-        }
+            // Move the character by finding the target velocity
+			Vector3 targetVelocity = new Vector2(Horizontal * _MovementSpeed, Vertical * _MovementSpeed);
+			// And then smoothing it out and applying it to the character
+			_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref Velocity, _MovementSmoothing);
 
-        HorizontalMovement = Mathf.Clamp(HorizontalMovement, -_MaxSpeed, _MaxSpeed);
-        //if(ApplyReverseForce) HorizontalMovement = HorizontalMovement * ReverseForceApplied;
-        _HorizontalForceApplied = MovementSpeed * HorizontalMovement;
-    }
+			// If the input is moving the player right and the player is facing left...
+			if (Horizontal > 0 && !_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+			// Otherwise if the input is moving the player left and the player is facing right...
+			else if (Horizontal < 0 && _FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+	}
 
-    protected virtual void CalcVerticalMovement(){
-        // Both botton pressed results in 0
-        
-        if(Input.GetKey(CharacterInput.MovementDownKeyCode) && Input.GetKey(CharacterInput.MovementUpKeyCode)){
-            VerticalMovement = 0;
-        }
-        // Left movement
-        else if(Input.GetKey(CharacterInput.MovementDownKeyCode)){
-            VerticalMovement += -_MovementCompoundValue;
-        
-        // Right movement
-        }else if(Input.GetKey(CharacterInput.MovementUpKeyCode)){
-            VerticalMovement += _MovementCompoundValue;
-        
-        }else{
-            if(_Character.RigidBody2D.velocity.sqrMagnitude <= -.1 || _Character.RigidBody2D.velocity.sqrMagnitude >= .1){
+	private void Flip()
+	{
+		// Switch the way the player is labelled as facing.
+		_FacingRight = !_FacingRight;
 
-
-            //if(_Character.RigidBody2D.velocity.sqrMagnitude != 0){
-                Debug.Log("Slowing down");
-                if(_Character.RigidBody2D.velocity.y < 0){
-                    // Slow down left movement
-                    VerticalMovement += _MovementCompoundValue*2;
-                }
-                else if(_Character.RigidBody2D.velocity.y > 0){
-                    // Slow down left movement
-                    VerticalMovement += -_MovementCompoundValue*2;
-                }
-
-            }
-            else{
-                VerticalMovement = 0;
-            } 
-            
-        }
-
-        VerticalMovement = Mathf.Clamp(VerticalMovement, -_MaxSpeed, _MaxSpeed);
-        _VerticalForceApplied = MovementSpeed * VerticalMovement;
-    }
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
 }
