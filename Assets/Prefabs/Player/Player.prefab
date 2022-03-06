@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 524428467}
   - component: {fileID: 524428466}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cursor
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524428464}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05417359, y: -0.4704309, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8225500946290762406}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1905505940
+--- !u!1 &1913312408
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1905505941}
+  - component: {fileID: 1913312409}
   m_Layer: 0
   m_Name: MeleeAttack
   m_TagString: Untagged
@@ -98,19 +98,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1905505941
+--- !u!4 &1913312409
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905505940}
+  m_GameObject: {fileID: 1913312408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8225500945804929230}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126019885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126019886}
+  m_Layer: 10
+  m_Name: WeaponHolder
+  m_TagString: Non Hitable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2126019886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126019885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.232, y: -0.489, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8225500946290762406}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8225500945804929073
 GameObject:
@@ -121,9 +151,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8225500945804929230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sensors
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8225500946197024160}
-  - {fileID: 1905505941}
+  - {fileID: 1913312409}
   m_Father: {fileID: 8225500946290762406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,9 +185,9 @@ GameObject:
   - component: {fileID: 8225500945937247312}
   - component: {fileID: 8225500945937247342}
   - component: {fileID: 8225500945937247313}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InteractableProxy
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,9 +245,9 @@ GameObject:
   - component: {fileID: 8225500946029606451}
   - component: {fileID: 8225500946029606449}
   - component: {fileID: 8225500946029606448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprites
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8225500946197024160}
   - component: {fileID: 8225500946197024161}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Proximity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,8 +394,9 @@ GameObject:
   - component: {fileID: 8225500946290762410}
   - component: {fileID: 8225500946290762409}
   - component: {fileID: 2109115278}
-  - component: {fileID: 416456200}
-  m_Layer: 0
+  - component: {fileID: 2109115279}
+  - component: {fileID: 1793466421}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,6 +418,7 @@ Transform:
   - {fileID: 8225500945804929230}
   - {fileID: 8225500946481334826}
   - {fileID: 524428467}
+  - {fileID: 2126019886}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -466,7 +498,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LockMouseMovement: 0
---- !u!114 &416456200
+--- !u!114 &2109115279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225500946290762413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f103dbbdc7451ad4ca1bd648b501c73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _WeaponPosition: {fileID: 2126019886}
+  _PrimaryWeapon: {fileID: -1428519292108590744, guid: 74e97a232254b4446be0755c242b7a4b, type: 3}
+--- !u!114 &1793466421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,10 +524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a9af761a81a8a43abefd2f1e4256ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AttackPoint: {fileID: 1905505941}
+  _AttackPoint: {fileID: 1913312409}
   _AttackRange: 0.5
-  _AttackCooldown: 0.5
-  _AttackStartup: 0
+  _AttackCooldown: 1
+  _AttackStartup: 0.2
   _AttackTime: 0.3
   _EnemyLayers:
     serializedVersion: 2
@@ -495,9 +541,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8225500946481334826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,9 +573,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8225500946672288599}
   - component: {fileID: 1644605760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

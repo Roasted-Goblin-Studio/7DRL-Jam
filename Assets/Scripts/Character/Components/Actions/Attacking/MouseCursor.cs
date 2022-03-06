@@ -27,10 +27,16 @@ public class MouseCursor : CharacterComponent
         _MousePosition.z +=10;
         _MousePosition = Camera.main.ScreenToWorldPoint(_MousePosition);
         _Cursor.transform.position = _MousePosition;
+        
     }
 
     public void CursorIsToLeftOfPlayer(){
         if (_MousePosition.x < transform.position.x && _CharacterMovement.FacingRight) _CharacterMovement.Flip();
         else if(_MousePosition.x > transform.position.x && !_CharacterMovement.FacingRight) _CharacterMovement.Flip(); 
+    }
+
+    public Vector3 GetClampedDirectionofMouse(){
+        // Direction between player character and cursor
+        return Vector3.ClampMagnitude(_MousePosition - _Character.transform.position, 1);
     }
 }
