@@ -30,28 +30,7 @@ public class MouseCursor : CharacterComponent
     }
 
     public void CursorIsToLeftOfPlayer(){
-        // Compare the cursor position to the Skeletons position
-        // Debug.Log("Skeletons Position: " + transform.position + " | Mouse Position: " + _MousePosition);
-        if (_MousePosition.x > transform.position.x && _CharacterMovement.FacingRight){
-            Debug.Log("Facing Right");
-            
-        }
-        if (_MousePosition.x < transform.position.x && _CharacterMovement.FacingRight){
-            Debug.Log("Flipping Right");
-            _CharacterMovement.Flip();
-        }
-        else if(_MousePosition.x < transform.position.x && !_CharacterMovement.FacingRight) {
-            Debug.Log("Facing Left");
-
-        }
-        else if(_MousePosition.x > transform.position.x && !_CharacterMovement.FacingRight) {
-            Debug.Log("Flipping Left");
-            _CharacterMovement.Flip();
-        }
+        if (_MousePosition.x < transform.position.x && _CharacterMovement.FacingRight) _CharacterMovement.Flip();
+        else if(_MousePosition.x > transform.position.x && !_CharacterMovement.FacingRight) _CharacterMovement.Flip(); 
     }
-
-    public void CalculatePlayerToCursor(){
-        
-    }
-
 }
