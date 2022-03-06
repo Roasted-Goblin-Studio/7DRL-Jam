@@ -8,14 +8,17 @@ public class CharacterComponent : MonoBehaviour
     protected Character _Character;
     protected CharacterAchievements _CharacterAchievements;
     protected CharacterInput _CharacterInput;
+    protected CharacterMovement _CharacterMovement;
 
     public CharacterAchievements CharacterAchievements { get => _CharacterAchievements; set => _CharacterAchievements = value; }
     public CharacterInput CharacterInput { get => _CharacterInput; set => _CharacterInput = value; }
+    public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
 
     protected virtual void Awake(){
         _Character = GetComponent<Character>();
         CharacterAchievements = GetComponent<CharacterAchievements>();
         CharacterInput = GetComponent<CharacterInput>();
+        CharacterMovement = GetComponent<CharacterMovement>();
     }
 
     protected virtual void Start(){

@@ -7,9 +7,13 @@ public class CharacterMovement : CharacterComponent
 {
 	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
 	
-    private bool _FacingRight = true;       // For determining which way the player is currently facing.      
+    private bool _FacingRight = true; 
+	private bool _UseMovementFollow = false;       // For determining which way the player is currently facing.      
     Vector3 Velocity = Vector3.zero;
 	private float _MovementSpeed = 7.5f; 
+
+	public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
+	public bool UseMovementFollow { get => _UseMovementFollow; set => _UseMovementFollow = value; }
 
 
 	protected override void Awake()
@@ -39,21 +43,23 @@ public class CharacterMovement : CharacterComponent
 			// And then smoothing it out and applying it to the character
 			_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref Velocity, _MovementSmoothing);
 
-			// If the input is moving the player right and the player is facing left...
-			if (Horizontal > 0 && !_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (Horizontal < 0 && _FacingRight)
-			{
-				// ... flip the player.
-				Flip();
+			if(UseMovementFollow){
+				// If the input is moving the player right and the player is facing left...
+				if (Horizontal > 0 && !_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
+				// Otherwise if the input is moving the player left and the player is facing right...
+				else if (Horizontal < 0 && _FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
 			}
 	}
 
-	private void Flip()
+	public void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		_FacingRight = !_FacingRight;
