@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterComponent : MonoBehaviour
 {
-
     protected Character _Character;
     protected CharacterAchievements _CharacterAchievements;
     protected CharacterInput _CharacterInput;
@@ -36,7 +35,7 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual void HandleInput(){
-        // HandlePlayerInput();
+         HandlePlayerInput();
         // HandleAIInput();
     }
 
