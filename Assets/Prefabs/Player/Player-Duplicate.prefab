@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 2109115278}
   - component: {fileID: 416456200}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player-Duplicate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
