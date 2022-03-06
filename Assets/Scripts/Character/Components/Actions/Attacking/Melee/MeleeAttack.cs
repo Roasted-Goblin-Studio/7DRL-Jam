@@ -1,30 +1,48 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class MeleeAttack : CharacterComponent 
 {
     [SerializeField] private Transform _AttackPoint;
     [SerializeField] private float _AttackRange = 0.5f;
+    [SerializeField] private float _AttackCooldown = 0.5f;
+    [SerializeField] private float _AttackStartup = 0f;
+    [SerializeField] private float _AttackTime = 0.5f;
     [SerializeField] private LayerMask _EnemyLayers;
-    [SerializeField] private float _AttackTime = 0.2f;
-
-    private float _TimeUntilCharacterCanAttack = 0f;
-    private float _TimeSinceLastAttack = 0f;
-    private float _AttackCooldown = 0.5f;
 
     private Animator _Animator;
-
+    private float _TimeUntilCharacterCanAttack = 0f;
+    private float _FirstAttackFrameTime = 0f;
+    private float _LastAttackFrameTime = 0f;
 
     protected override void Start()
     {
         base.Start();
 
-        _Animator = GetComponent<Animator>();
+        _Animator = GetComponentInChildren<Animator>();
     }
 
     protected override void HandleBasicComponentFunction()
     {
-        _TimeSinceLastAttack += Time.deltaTime;
+        base.HandleBasicComponentFunction();
+
+        if (CheckIfAttacking())
+        {
+            if (!_AttackPoint) return;
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_AttackPoint.position, _AttackRange, _EnemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                // TODO: check for health  componenet of enemy and reduce HP
+                Debug.Log("We hit " + enemy.name);
+            }
+        }
+    }
+
+    private bool CheckIfAttacking()
+    {
+        return (Time.time >= _FirstAttackFrameTime && Time.time <= _LastAttackFrameTime);
     }
 
     protected override bool HandlePlayerInput()
@@ -39,27 +57,17 @@ public class MeleeAttack : CharacterComponent
     protected override bool HandleAIInput()
     {
         return base.HandleAIInput();
-
     }
 
     private void Attack()
     {
-        _TimeSinceLastAttack = 0f;
-        // attacking
-
-        _TimeUntilCharacterCanAttack = Time.time + _AttackTime;
+        _TimeUntilCharacterCanAttack = Time.time + _AttackCooldown;
+        _FirstAttackFrameTime = Time.time + _AttackStartup;
+        _LastAttackFrameTime = Time.time + _AttackStartup + _AttackTime;
 
         if (_Animator)
         {
-            _Animator.SetTrigger("attack");
-        }
-
-        if (!_AttackPoint) return;
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_AttackPoint.position, _AttackRange, _EnemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            Debug.Log("We hit " + enemy.name);
+            _Animator.SetTrigger("meleeAttack");
         }
     }
 
