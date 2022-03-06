@@ -44,4 +44,12 @@ public class Character : MonoBehaviour
     protected virtual void Start() {
         
     }
+
+    //~~ FLAGS ~~\\
+    private bool _IsHitable = false;
+    private bool _IsAlive = false;
+
+    public bool IsHitable { get => _IsHitable; set => _IsHitable = value; }
+    public bool IsAlive { get => _IsAlive; set => _IsAlive = value; }
+
 }

@@ -11,11 +11,13 @@ public class BoneProjectile : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        // if(other.tag == "Player"){
-        //     CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
-        //     characterHealth.Damage(_ProjectileDamage);
-        //     _ReturnToPool.DestroyObject();
-        // }
+        Debug.Log(other.tag);
+
+        if(other.tag == "Enemy"){
+            CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
+            characterHealth.Damage(_ProjectileDamage);
+            _ReturnObjectToPool.DestroyObject();
+        }
         
         foreach (var tag in _TagsToAvoid.TagsToAvoidStrings)
         {
