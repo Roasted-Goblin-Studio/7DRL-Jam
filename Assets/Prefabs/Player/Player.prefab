@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 524428466}
   m_Layer: 10
   m_Name: Cursor
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524428464}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.089, y: -0.258, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8225500946290762406}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2126019886}
   m_Layer: 10
   m_Name: WeaponHolder
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126019885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -1, z: 0}
+  m_LocalPosition: {x: -0.232, y: -0.489, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8225500946290762406}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8225500945804929230}
   m_Layer: 10
   m_Name: Sensors
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 8225500945937247313}
   m_Layer: 10
   m_Name: InteractableProxy
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8225500946029606448}
   m_Layer: 10
   m_Name: Sprites
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 8225500946481334826}
   m_Layer: 10
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 1644605760}
   m_Layer: 10
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Non Hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

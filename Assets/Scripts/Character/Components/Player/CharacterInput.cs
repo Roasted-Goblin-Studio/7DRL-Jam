@@ -16,9 +16,9 @@ public class CharacterInput : MonoBehaviour
     public KeyCode MovementDownKeyCode  {get => _MovementDownKeyCode; set => _MovementDownKeyCode = value;}
 
     // Weapons
-    private int _MousePrimaryKeyCode = 0;
-    private int _MouseSecondaryKeyCode = 1;
-    private int _MouseScrollKeyCode = 2;
+    private int _MousePrimaryKeyCode = 0;       // LEFT CLICK
+    private int _MouseSecondaryKeyCode = 1;     // RIGHT CLICK 
+    private int _MouseScrollKeyCode = 2;        // SCROLL WHEEL CLICK
     public int MousePrimaryKeyCode      { get => _MousePrimaryKeyCode; }
     public int MouseSecondaryKeyCode    { get => _MouseSecondaryKeyCode; }
     public int MouseScrollKeyCode       { get => _MouseScrollKeyCode; }
