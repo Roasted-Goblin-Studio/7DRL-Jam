@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoneThrow : Weapon
-{   
+{
+    private int _SelfDamage = 1;
 
     protected override void UseWeapon()
     {
@@ -13,6 +14,13 @@ public class BoneThrow : Weapon
 
     private void SpawnProjectile(){
         GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
+
+        var throwerHP = WeaponOwner.GetComponent<Health>();
+
+        if (throwerHP)
+        {
+            throwerHP.Damage(_SelfDamage);
+        }
 
         pooledProjectile.transform.position = _ProjectileSpawnPosition.position;
         pooledProjectile.SetActive(true);
