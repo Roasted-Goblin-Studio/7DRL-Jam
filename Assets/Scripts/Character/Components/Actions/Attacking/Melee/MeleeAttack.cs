@@ -9,6 +9,7 @@ public class MeleeAttack : CharacterComponent
     [SerializeField] private float _AttackCooldown = 0.5f;
     [SerializeField] private float _AttackStartup = 0f;
     [SerializeField] private float _AttackTime = 0.5f;
+    [SerializeField] private int _AttackDamage = 1;
     [SerializeField] private LayerMask _EnemyLayers;
 
     private Animator _Animator;
@@ -34,8 +35,19 @@ public class MeleeAttack : CharacterComponent
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                // TODO: check for health  componenet of enemy and reduce HP
-                Debug.Log("We hit " + enemy.name);
+                if (enemy.tag != "HitBox") break;
+                _LastAttackFrameTime = Time.deltaTime;
+
+                var enemyHP = enemy.GetComponentInParent<Health>();
+
+                if (enemyHP)
+                {
+                    enemyHP.Damage(_AttackDamage);
+                }
+                else
+                {
+                    Debug.LogError("No Health Component found on Enemy");
+                }
             }
         }
     }
