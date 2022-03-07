@@ -17,6 +17,8 @@ public class CharacterMovement : CharacterComponent
 
 	public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
 	public bool UseMovementFollow { get => _UseMovementFollow; set => _UseMovementFollow = value; }
+	public float Horizontal { get => _Horizontal; set => _Horizontal = value; }
+	public float Vertical { get => _Vertical; set => _Vertical = value; }
 
 	protected override void Awake()
 	{
@@ -31,8 +33,8 @@ public class CharacterMovement : CharacterComponent
 
     protected override void HandlePlayerInput()
     {
-		_Horizontal = Input.GetAxisRaw("Horizontal");
-		_Vertical = Input.GetAxisRaw("Vertical");
+		Horizontal = Input.GetAxisRaw("Horizontal");
+		Vertical = Input.GetAxisRaw("Vertical");
     }
 
     protected override void HandleAIInput(StateController controller = null)

@@ -8,6 +8,8 @@ public class StateController : MonoBehaviour
     [Header("State")]
     [SerializeField] private AIState _CurrentState;
     [SerializeField] private AIState _RemainInState;
+    [SerializeField] private float _DetectArea = 3f;
+    [SerializeField] private LayerMask _TargetMask;
 
     private CharacterMovement _CharacterMovement { get; set; }
     private CharacterAttack _CharacterAttack { get; set; }
@@ -16,6 +18,7 @@ public class StateController : MonoBehaviour
 
     private Transform _Target { get; set; }
     private Collider2D _Collider2D { get; set; }
+    private Collider2D _TargetCollider { get; set; }
     private GameObject _GameObject {get; set;}
 
     private bool _TargetSet = false;
@@ -51,6 +54,7 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
+        DetectIfPlayerHasEnteredAggroRange();
         if(_CurrentState == null) return;
         if (Actionable)
         {
@@ -64,5 +68,13 @@ public class StateController : MonoBehaviour
         {
             _CurrentState = nextState;
         }
+    }
+
+    private void DetectIfPlayerHasEnteredAggroRange()
+    {
+        _TargetCollider = Physics2D.OverlapCircle(transform.position, _DetectArea, _TargetMask);
+        if (_TargetCollider == null || Target == null || Target != null) return;
+        Target = _TargetCollider.transform;
+        TargetSet = true;
     }
 }
