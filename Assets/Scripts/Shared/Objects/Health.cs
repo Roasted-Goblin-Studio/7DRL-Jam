@@ -61,7 +61,7 @@ public class Health : MonoBehaviour
 
         float newHealth = _CurrentHealth - amount;
 
-        if (newHealth <= 0)
+        if (newHealth <= 0 && _CurrentHealth > 0)
         {
             _CurrentHealth = 0;
             Die();

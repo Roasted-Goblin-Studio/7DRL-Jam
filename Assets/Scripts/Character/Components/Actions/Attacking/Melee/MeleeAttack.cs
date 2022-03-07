@@ -40,14 +40,9 @@ public class MeleeAttack : CharacterComponent
 
                 var enemyHP = enemy.GetComponentInParent<Health>();
 
-                if (enemyHP)
-                {
-                    enemyHP.Damage(_AttackDamage);
-                }
-                else
-                {
-                    Debug.LogError("No Health Component found on Enemy");
-                }
+                if (!enemyHP) return;
+
+                enemyHP.Damage(_AttackDamage);
             }
         }
     }
