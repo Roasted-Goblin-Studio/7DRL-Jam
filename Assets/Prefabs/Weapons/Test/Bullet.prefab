@@ -140,9 +140,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 12.5
-  _Acceleration: 0
   _ProjectileDamage: 1
   _ProjectileType: 0
+  _FriendlyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  _EnemyLayers:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &-1371728370533433506
 MonoBehaviour:
   m_ObjectHideFlags: 0
