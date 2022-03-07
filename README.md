@@ -27,3 +27,7 @@ Summoned by his master Necromancer, our skeleton friend must venture below, into
 1. (Optional) Configure the weapon values
 1. Save the prefab
 
+## How to create a DevOps pipeline
+1. Copy the `.github/workflows/main.yml` file 
+2. Create a personal access token
+3. Paste the token in the ACCESS_TOKEN secret at the repo level
