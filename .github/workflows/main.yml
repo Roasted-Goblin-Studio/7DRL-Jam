@@ -70,7 +70,7 @@ jobs:
         name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
         #if: github.event.action == 'published'
         with:
-          repo_token: ${{ secrets.GH_CREDENTIALS }}
+          repo_token: ${{ secrets.ACCESS_TOKEN }}
           asset_name: build-${{ matrix.targetPlatform }}.zip
           file: build/build-${{ matrix.targetPlatform }}.zip
           tag: ${{ github.ref }}
@@ -85,7 +85,7 @@ jobs:
         uses: josephbmanley/butler-publish-itchio-action@master
         if: contains(matrix.targetPlatform, 'StandaloneOSX')
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: osx
           ITCH_GAME: ${{ env.ITCH_PROJECT_NAME }}
           ITCH_USER: roasted-goblin-studios
@@ -96,7 +96,7 @@ jobs:
         uses: josephbmanley/butler-publish-itchio-action@master
         if: contains(matrix.targetPlatform, 'StandaloneWindows')
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: windows
           ITCH_GAME: ${{ env.ITCH_PROJECT_NAME }}
           ITCH_USER: roasted-goblin-studios
@@ -107,7 +107,7 @@ jobs:
         uses: josephbmanley/butler-publish-itchio-action@master
         if: contains(matrix.targetPlatform, 'StandaloneLinux64')
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: linux
           ITCH_GAME: ${{ env.ITCH_PROJECT_NAME }}
           ITCH_USER: roasted-goblin-studios
@@ -118,7 +118,7 @@ jobs:
         uses: josephbmanley/butler-publish-itchio-action@master
         if: contains(matrix.targetPlatform, 'WebGL')
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: HTML5
           ITCH_GAME: ${{ env.ITCH_PROJECT_NAME }}
           ITCH_USER: roasted-goblin-studios
