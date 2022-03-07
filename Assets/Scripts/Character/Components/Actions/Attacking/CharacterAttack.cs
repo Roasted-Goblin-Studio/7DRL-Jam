@@ -16,16 +16,8 @@ public class CharacterAttack : CharacterComponent
         _PrimaryWeapon.WeaponOwner = _Character;
     }
 
-    protected override void Update()
-    {
-        HandlePlayerInput();
-    }
-
-    protected override bool HandlePlayerInput()
-    {
-        if(!base.HandlePlayerInput()) return false;
-        
+    protected override void HandlePlayerInput()
+    {   
         if(Input.GetMouseButtonDown(_Character.CharacterInput.MousePrimaryKeyCode)) _PrimaryWeapon.InitiateUseWeapon();
-        return true;
     }
 }

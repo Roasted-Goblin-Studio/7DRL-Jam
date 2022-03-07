@@ -9,12 +9,14 @@ public class CharacterMovement : CharacterComponent
 	
     private bool _FacingRight = true; 
 	private bool _UseMovementFollow = false;       // For determining which way the player is currently facing.      
-    Vector3 Velocity = Vector3.zero;
-	private float _MovementSpeed = 7.5f; 
+    private Vector3 _Velocity = Vector3.zero;
+	private float _MovementSpeed = 7.5f;
+
+	private float _Horizontal;
+	private float _Vertical;
 
 	public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
 	public bool UseMovementFollow { get => _UseMovementFollow; set => _UseMovementFollow = value; }
-
 
 	protected override void Awake()
 	{
@@ -27,36 +29,44 @@ public class CharacterMovement : CharacterComponent
         //Initialising the force to use on the RigidBody in various ways
     }
 
+    protected override void HandlePlayerInput()
+    {
+		_Horizontal = Input.GetAxisRaw("Horizontal");
+		_Vertical = Input.GetAxisRaw("Vertical");
+    }
+
+    protected override void HandleAIInput(StateController controller = null)
+    {
+        // controller.Target;
+    }
+
     protected override void HandlePhysicsComponentFunction()
     {
         MoveCharacter();
-
     }
 
     public void MoveCharacter()
-	{
-            float Horizontal = Input.GetAxisRaw("Horizontal");
-            float Vertical = Input.GetAxisRaw("Vertical");
-        
-            // Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(Horizontal * _MovementSpeed, Vertical * _MovementSpeed);
-			// And then smoothing it out and applying it to the character
-			_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref Velocity, _MovementSmoothing);
+	{		
+		if(_Character.CanMove == false) return;	
+		// Move the character by finding the target velocity
+		Vector3 targetVelocity = new Vector2(_Horizontal * _MovementSpeed, _Vertical * _MovementSpeed);
+		// And then smoothing it out and applying it to the character
+		_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
 
-			if(UseMovementFollow){
-				// If the input is moving the player right and the player is facing left...
-				if (Horizontal > 0 && !_FacingRight)
-				{
-					// ... flip the player.
-					Flip();
-				}
-				// Otherwise if the input is moving the player left and the player is facing right...
-				else if (Horizontal < 0 && _FacingRight)
-				{
-					// ... flip the player.
-					Flip();
-				}
+		if(UseMovementFollow){
+			// If the input is moving the player right and the player is facing left...
+			if (_Horizontal > 0 && !_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
 			}
+			// Otherwise if the input is moving the player left and the player is facing right...
+			else if (_Horizontal < 0 && _FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+		}
 	}
 
 	public void Flip()
@@ -68,5 +78,13 @@ public class CharacterMovement : CharacterComponent
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public void LockMovement(){
+		_Character.CanMove = false;
+	}
+
+	public void UnlockMovement(){
+		_Character.CanMove = false;
 	}
 }

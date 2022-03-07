@@ -6,8 +6,8 @@ public class StateController : MonoBehaviour
 {
     // Brain of the AI
     [Header("State")]
-    [SerializeField] private AIState CurrentState;
-    [SerializeField] private AIState RemainInState;
+    [SerializeField] private AIState _CurrentState;
+    [SerializeField] private AIState _RemainInState;
 
     private CharacterMovement _CharacterMovement { get; set; }
     private CharacterAttack _CharacterAttack { get; set; }
@@ -25,14 +25,14 @@ public class StateController : MonoBehaviour
     // public Path _Path { get; set; }
     // public Paths _Paths { get; set; }
 
-    private CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
-    private CharacterAttack CharacterAttack { get => _CharacterAttack; set => _CharacterAttack = value; }
-    private Character Character { get => _Character; set => _Character = value; }
-    private CharacterHealth CharacterHealth { get => _CharacterHealth; set => _CharacterHealth = value; }
+    public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
+    public CharacterAttack CharacterAttack { get => _CharacterAttack; set => _CharacterAttack = value; }
+    public Character Character { get => _Character; set => _Character = value; }
+    public CharacterHealth CharacterHealth { get => _CharacterHealth; set => _CharacterHealth = value; }
     
-    private Transform Target { get => _Target; set => _Target = value; }
-    private Collider2D Collider2D { get => _Collider2D; set => _Collider2D = value; }
-    private GameObject GameObject {get => _GameObject; set => _GameObject = value;}
+    public Transform Target { get => _Target; set => _Target = value; }
+    public Collider2D Collider2D { get => _Collider2D; set => _Collider2D = value; }
+    public GameObject GameObject {get => _GameObject; set => _GameObject = value;}
     
     public bool TargetSet { get => _TargetSet; set => _TargetSet = value; }
     public bool IntroDone { get => _IntroDone; set => _IntroDone = value; }
@@ -51,17 +51,18 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
+        if(_CurrentState == null) return;
         if (Actionable)
         {
-            CurrentState.EvaluateState(this);
+            _CurrentState.EvaluateState(this);
         }
     }
 
     public void TransitionToState(AIState nextState)
     {
-        if (nextState != RemainInState)
+        if (nextState != _RemainInState)
         {
-            CurrentState = nextState;
+            _CurrentState = nextState;
         }
     }
 }

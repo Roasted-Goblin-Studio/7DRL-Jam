@@ -35,16 +35,16 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual void HandleInput(){
-         HandlePlayerInput();
-        // HandleAIInput();
+        if(_Character.CharacterType == Character.CharacterTypes.Player) HandlePlayerInput();
+        if(_Character.CharacterType == Character.CharacterTypes.AI) HandleAIInput();
     }
 
-    protected virtual bool HandlePlayerInput(){
-        return IsPlayer();
+    protected virtual void HandlePlayerInput(){
+
     }
 
-    protected virtual bool HandleAIInput(){
-       return IsAI();
+    protected virtual void HandleAIInput(StateController controller = null){
+
     }
 
     protected virtual void HandleBasicComponentFunction(){
