@@ -88,7 +88,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void DoEnemyCollision(Collider2D other)
     {
-        var enemyHP = other.GetComponentInParent<CharacterHealth>();
+        var enemyHP = other.GetComponentInParent<Health>();
 
         if (!enemyHP || other.tag != "HitBox") return;
 
