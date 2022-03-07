@@ -8,6 +8,7 @@ TagManager:
   - InvisibleWall
   - Non Hitable
   - Enemy
+  - HitBox
   layers:
   - Default
   - TransparentFX
@@ -54,9 +55,9 @@ TagManager:
   - name: Decorations
     uniqueID: 111399907
     locked: 0
-  - name: Player
+  - name: Enemy
     uniqueID: 3850338249
     locked: 0
-  - name: Enemy
+  - name: Player
     uniqueID: 2946801533
     locked: 0
