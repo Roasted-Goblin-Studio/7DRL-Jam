@@ -79,8 +79,4 @@ public class StateController : MonoBehaviour
         Target = _TargetCollider.transform;
         TargetSet = true;
     }
-
-    private float DetermineDistanceToTarget(){
-        return 0;
-    }
 }
