@@ -9,7 +9,6 @@ public class MagicSeal : MonoBehaviour
 
     public void DamageSeal()
     {
-        Debug.Log("BROKE A RUNE");
         _RunesBroken++;
         if (_RunesBroken >= _RunesRequired) DestroySeal();
     }
