@@ -162,3 +162,7 @@ fmod_editor.log
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
 LEARNING.md
+
+# Aseprite
+*.aseprite
+*.aseprite.meta
