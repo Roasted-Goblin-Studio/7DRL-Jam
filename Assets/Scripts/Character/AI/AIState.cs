@@ -10,11 +10,7 @@ public class AIState : ScriptableObject
 
     public void EvaluateState(StateController controller)
     {
-        if (controller == null)
-        {
-            Debug.Log("AI StateController is null..");
-            return;
-        }
+        if (controller == null) return;
         PerformActions(controller);
         EvaluateTransitions(controller);
     }
@@ -40,12 +36,10 @@ public class AIState : ScriptableObject
 
     public void PerformActions(StateController controller)
     {
-        if (AIActions != null)
+        if (AIActions == null) return;
+        foreach (AIAction action in AIActions)
         {
-            foreach (AIAction action in AIActions)
-            {
-                action.Act(controller);
-            }
+            action.Act(controller);
         }
     }
 }

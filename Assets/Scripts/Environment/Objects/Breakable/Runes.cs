@@ -6,6 +6,7 @@ public class Runes : MonoBehaviour
 {
     [SerializeField] private MagicSeal _MagicSeal;
     [SerializeField] private GameObject _Rune;
+    private bool _IsBroken = false;
 
     private Health _Health;
 
@@ -17,11 +18,13 @@ public class Runes : MonoBehaviour
     private void Update()
     {
         // better to not have a listener, but no time for delegates
+        if (_IsBroken) return;
         if (_Health && _Health.CurrentHealth == 0) BreakRune();
     }
 
     private void BreakRune()
     {
+        _IsBroken = true;
         _MagicSeal.DamageSeal();
         Destroy(_Rune);
     }
