@@ -278,26 +278,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4430410975653713907, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062158365704513142, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 508805dc190e4d54eb6c401002b35ae9, type: 3}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014584509995079778, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
 --- !u!1001 &621542253
@@ -307,45 +287,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 805810209135264586, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344704511424872402, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344704511424872402, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344704511424872402, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344704511424872402, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300660138191143, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300661312393939, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6538300661508705708, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300661508705708, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300661508705708, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538300661508705708, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -390,14 +334,6 @@ PrefabInstance:
     - target: {fileID: 6538300661508705711, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
       propertyPath: m_Name
       value: MagicSeal
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300661508705711, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538300661508705711, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
-      propertyPath: m_TagString
-      value: InvisibleWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3aaff0a41de0041b911f2f2cfe8c97, type: 3}
@@ -24938,18 +24874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 769871693494639241, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1608788439889472779, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
       propertyPath: _MagicSeal
       value: 
       objectReference: {fileID: 747855917}
-    - target: {fileID: 4430410975416315367, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4430410975653713905, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -24997,42 +24925,6 @@ PrefabInstance:
     - target: {fileID: 4430410975653713907, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
       propertyPath: m_Name
       value: Rune (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062158365704513142, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f40e5169d9b95d24091098469975b827, type: 3}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014584509995079778, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
