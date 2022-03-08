@@ -5,6 +5,7 @@ using UnityEngine;
 public class Runes : MonoBehaviour
 {
     [SerializeField] private MagicSeal _MagicSeal;
+    [SerializeField] private GameObject _Rune;
 
     private Health _Health;
 
@@ -22,6 +23,6 @@ public class Runes : MonoBehaviour
     private void BreakRune()
     {
         _MagicSeal.DamageSeal();
-        Destroy(gameObject);
+        Destroy(_Rune);
     }
 }
