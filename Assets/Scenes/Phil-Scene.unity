@@ -24830,6 +24830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1-Snail
       objectReference: {fileID: 0}
+    - target: {fileID: 9029425299101059296, guid: c9b64c123d2e18044bd7d2feaf8fb475, type: 3}
+      propertyPath: _CharacterType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b64c123d2e18044bd7d2feaf8fb475, type: 3}
 --- !u!1 &1571847597
@@ -25103,6 +25107,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8225500946290762406, guid: 77617fd7672cea044b5a4ca0477b6eac, type: 3}
   m_PrefabInstance: {fileID: 1793466417}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1905835499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7527466947404297557, guid: c9b64c123d2e18044bd7d2feaf8fb475, type: 3}
+  m_PrefabInstance: {fileID: 1068924291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1905835500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905835499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MovementSmoothing: 0.05
+--- !u!114 &1905835504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905835499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d227dde480aa5f47a77ea632ac613ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CurrentState: {fileID: 11400000, guid: 2cffbc15ff86d814784b57732f5a7be9, type: 2}
+  _RemainInState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
+  _DetectArea: 3
+  _TargetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1912169913
 GameObject:
   m_ObjectHideFlags: 0
