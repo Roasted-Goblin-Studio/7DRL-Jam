@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    //~~ COMPONENTS ~~ \\
+    //~~ COMPONENTS ~~\\
     // Used to contain metadata of the character state and attached Objects
     [SerializeField] protected CharacterTypes _CharacterType;
     protected CharacterInput _CharacterInput;
@@ -48,8 +48,12 @@ public class Character : MonoBehaviour
     //~~ FLAGS ~~\\
     private bool _IsHitable = false;
     private bool _IsAlive = false;
+    // TODO: manage these flags properly to ensure they are not unexptectedly tampered with by multiple components
+    private bool _IsActionable = true;
+    private bool _CanMove = true;
 
     public bool IsHitable { get => _IsHitable; set => _IsHitable = value; }
     public bool IsAlive { get => _IsAlive; set => _IsAlive = value; }
-
+    public bool IsActionable { get => _IsActionable; set => _IsActionable = value; }
+    public bool CanMove { get => _CanMove; set => _CanMove = value; }
 }

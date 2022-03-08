@@ -26,8 +26,10 @@ public class CharacterInput : MonoBehaviour
     public int MouseScrollKeyCode       { get => _MouseScrollKeyCode; }
 
     // Pause
+    [SerializeField] private KeyCode _PauseKeyCode = KeyCode.Backspace;
+    public KeyCode PauseKeyCode  {get => _PauseKeyCode; set => _PauseKeyCode = value;}
 
     // Interact with Object
-
-
+    [SerializeField] private KeyCode _InteractKeyCode = KeyCode.E;
+    public KeyCode InteractKeyCode  {get => _InteractKeyCode; set => _InteractKeyCode = value;}
 }

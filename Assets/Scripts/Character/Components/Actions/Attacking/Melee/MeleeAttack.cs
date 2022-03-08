@@ -9,6 +9,7 @@ public class MeleeAttack : CharacterComponent
     [SerializeField] private float _AttackCooldown = 0.5f;
     [SerializeField] private float _AttackStartup = 0f;
     [SerializeField] private float _AttackTime = 0.5f;
+    [SerializeField] private int _AttackDamage = 1;
     [SerializeField] private LayerMask _EnemyLayers;
 
     private Animator _Animator;
@@ -34,8 +35,14 @@ public class MeleeAttack : CharacterComponent
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                // TODO: check for health  componenet of enemy and reduce HP
-                Debug.Log("We hit " + enemy.name);
+                if (enemy.tag != "HitBox") break;
+                _LastAttackFrameTime = Time.deltaTime;
+
+                var enemyHP = enemy.GetComponentInParent<Health>();
+
+                if (!enemyHP) return;
+
+                enemyHP.Damage(_AttackDamage);
             }
         }
     }
@@ -45,18 +52,14 @@ public class MeleeAttack : CharacterComponent
         return (Time.time >= _FirstAttackFrameTime && Time.time <= _LastAttackFrameTime);
     }
 
-    protected override bool HandlePlayerInput()
+    protected override void HandlePlayerInput()
     {
-        if (!base.HandlePlayerInput()) return false;
-
         if (DecideIfCharacterCanAttack()) Attack();
-
-        return true;
     }
 
-    protected override bool HandleAIInput()
+    protected override void HandleAIInput(StateController controller = null)
     {
-        return base.HandleAIInput();
+
     }
 
     private void Attack()

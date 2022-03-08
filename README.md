@@ -21,3 +21,13 @@ Summoned by his master Necromancer, our skeleton friend must venture below, into
 1. Add the references to the Character weapon holder and projectile prefab.
 1. Save the prefab
 
+## How to add melee attack
+1. Add the MeleeAttack script to your game object
+1. Select the "enemy layers" that the attack will be able to affect (usually Player or Enemies)
+1. (Optional) Configure the weapon values
+1. Save the prefab
+
+## How to create a DevOps pipeline
+1. Copy the `.github/workflows/main.yml` file 
+2. Create a personal access token
+3. Paste the token in the ACCESS_TOKEN secret at the repo level
