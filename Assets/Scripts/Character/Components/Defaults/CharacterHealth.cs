@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class CharacterHealth : Health
 {
-    private Animator _Animator;
+    private Character _Character;
 
     protected override void Start(){
         base.Start();
         _Character = GetComponent<Character>();
-        _Animator = GetComponentInChildren<Animator>();
+        _Character.IsAlive = true;
+        _Character.IsHitable = true;
+    }
+
+    public override void Damage(float amount)
+    {
+        if(_Character && !_Character.IsHitable) return;
+        base.Damage(amount);
     }
 
     public override void Die()
     {
         base.Die();
 
-        if (!_Animator) return;
+        if (_Character) _Character.IsAlive = false;
 
-        _Animator.SetTrigger("die");
+        if (_Animator) _Animator.SetTrigger("die");
     }
 }

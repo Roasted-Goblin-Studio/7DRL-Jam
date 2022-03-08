@@ -147,7 +147,7 @@ MonoBehaviour:
     m_Bits: 1024
   _EnemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
 --- !u!114 &-1371728370533433506
 MonoBehaviour:
   m_ObjectHideFlags: 0
