@@ -16,7 +16,7 @@ public class StateController : MonoBehaviour
     private Character _Character { get; set; }
     private CharacterHealth _CharacterHealth {get; set;}
 
-    private Transform _Target { get; set; }
+    private Transform _Target;
     private Collider2D _Collider2D { get; set; }
     private Collider2D _TargetCollider { get; set; }
     private GameObject _GameObject {get; set;}
@@ -54,8 +54,8 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
-        DetectIfPlayerHasEnteredAggroRange();
         if(_CurrentState == null) return;
+        DetectIfPlayerHasEnteredAggroRange();
         if (Actionable)
         {
             _CurrentState.EvaluateState(this);
@@ -73,8 +73,14 @@ public class StateController : MonoBehaviour
     private void DetectIfPlayerHasEnteredAggroRange()
     {
         _TargetCollider = Physics2D.OverlapCircle(transform.position, _DetectArea, _TargetMask);
-        if (_TargetCollider == null || Target == null || Target != null) return;
+        if (_TargetCollider == null) return;
+        if (Target != null) return;
+        if(_TargetCollider.tag != "HitBox") return;
         Target = _TargetCollider.transform;
         TargetSet = true;
+    }
+
+    private float DetermineDistanceToTarget(){
+        return 0;
     }
 }
