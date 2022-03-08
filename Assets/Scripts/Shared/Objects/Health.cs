@@ -78,3 +78,4 @@ public class Health : MonoBehaviour
         // Check if _Character is not null
         _Character.IsAlive = false; 
     }
+}
