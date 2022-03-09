@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     // Private
 
     // Protected
-    protected Character _Character;
+    protected Animator _Animator;
     protected float _OriginalMaxHealth;
 
     // Serialized
@@ -21,11 +21,9 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {  
-        _Character = GetComponent<Character>();
+        _Animator = GetComponentInChildren<Animator>();
         _CurrentHealth = _MaxHealth;
         _OriginalMaxHealth = _MaxHealth;
-        _Character.IsAlive = true;
-        _Character.IsHitable = true;
     }
 
     // Health indicator controller
@@ -57,7 +55,8 @@ public class Health : MonoBehaviour
     }
 
     public virtual void Damage(float amount){
-        if(!_Character.IsHitable){ return; }
+
+        if (_CurrentHealth <= 0) return;
 
         float newHealth = _CurrentHealth - amount;
 
@@ -72,10 +71,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public virtual void Die(){
-        // Check if _Character is not null
-        if( _Character ){ _Character.IsAlive = false; }
-    }
+    public virtual void Die(){ }
 
     // Add DoT
 }

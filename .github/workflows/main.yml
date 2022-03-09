@@ -29,9 +29,9 @@ jobs:
           - StandaloneLinux64 # Build a Linux 64-bit standalone.
           - WebGL # WebGL.
         unityVersion:
-          - 2020.3.16f1
-    
 
+          - 2020.3.16f1
+          
     steps:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v3.x
