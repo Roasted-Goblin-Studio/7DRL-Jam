@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ffd9d9211f94248a6ed0f84aa80311, type: 3}
   m_Name: Snail-1.Death
   m_EditorClassIdentifier: 
+  LengthOfDeathState: 5
