@@ -8,6 +8,8 @@ public class StateController : MonoBehaviour
     [Header("State")]
     [SerializeField] private AIState _CurrentState;
     [SerializeField] private AIState _RemainInState;
+    [SerializeField] private AIState _DeathState;
+
     [SerializeField] private float _DetectArea = 3f;
     [SerializeField] private LayerMask _TargetMask;
 
@@ -17,7 +19,6 @@ public class StateController : MonoBehaviour
     private CharacterHealth _CharacterHealth {get; set;}
 
     private Transform _Target;
-    private Collider2D _Collider2D { get; set; }
     private Collider2D _TargetCollider { get; set; }
     private GameObject _GameObject {get; set;}
 
@@ -32,9 +33,9 @@ public class StateController : MonoBehaviour
     public CharacterAttack CharacterAttack { get => _CharacterAttack; set => _CharacterAttack = value; }
     public Character Character { get => _Character; set => _Character = value; }
     public CharacterHealth CharacterHealth { get => _CharacterHealth; set => _CharacterHealth = value; }
+    public AIState RemainInState { get => _RemainInState; set => _RemainInState = value; }
     
     public Transform Target { get => _Target; set => _Target = value; }
-    public Collider2D Collider2D { get => _Collider2D; set => _Collider2D = value; }
     public GameObject GameObject {get => _GameObject; set => _GameObject = value;}
     
     public bool TargetSet { get => _TargetSet; set => _TargetSet = value; }
@@ -48,34 +49,30 @@ public class StateController : MonoBehaviour
         _CharacterHealth = GetComponent<CharacterHealth>();
         _CharacterAttack = GetComponent<CharacterAttack>();
         _Character = GetComponent<Character>();
-        _Collider2D = GetComponent<Collider2D>();
         _GameObject = gameObject;
     }
 
     private void Update()
     {
         if(_CurrentState == null) return;
-        DetectIfPlayerHasEnteredAggroRange();
-        if (Actionable)
-        {
-            _CurrentState.EvaluateState(this);
-        }
+        if (Actionable) _CurrentState.EvaluateState(this);
     }
 
-    public void TransitionToState(AIState nextState)
-    {
-        if (nextState != _RemainInState)
-        {
-            _CurrentState = nextState;
-        }
+    private void FixedUpdate() {
+        if(Target == null) DetectIfPlayerHasEnteredAggroRange();
+    }
+
+    public void TransitionToState(AIState nextState = null)
+    {   
+        
+        if(!Character.IsAlive) _CurrentState = _DeathState;
+        else if (nextState != _RemainInState && nextState != null) _CurrentState = nextState;
     }
 
     private void DetectIfPlayerHasEnteredAggroRange()
     {
         _TargetCollider = Physics2D.OverlapCircle(transform.position, _DetectArea, _TargetMask);
         if (_TargetCollider == null) return;
-        if (Target != null) return;
-        if(_TargetCollider.tag != "HitBox") return;
         Target = _TargetCollider.transform;
         TargetSet = true;
     }

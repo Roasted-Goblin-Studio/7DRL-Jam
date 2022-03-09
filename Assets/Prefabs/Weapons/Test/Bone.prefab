@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6615047492680388991}
   - component: {fileID: -7761142352998879900}
   m_Layer: 10
-  m_Name: Bullet
+  m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   _ProjectileType: 0
   _FriendlyLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120
   _EnemyLayers:
     serializedVersion: 2
     m_Bits: 6144

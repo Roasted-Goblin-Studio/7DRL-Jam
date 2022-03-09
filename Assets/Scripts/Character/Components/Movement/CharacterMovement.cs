@@ -37,11 +37,6 @@ public class CharacterMovement : CharacterComponent
 		Vertical = Input.GetAxisRaw("Vertical");
     }
 
-    protected override void HandleAIInput(StateController controller = null)
-    {
-        // controller.Target;
-    }
-
     protected override void HandlePhysicsComponentFunction()
     {
         MoveCharacter();
@@ -88,5 +83,10 @@ public class CharacterMovement : CharacterComponent
 
 	public void UnlockMovement(){
 		_Character.CanMove = false;
+	}
+
+	public void StopAllMovement(){
+		Horizontal = 0;
+		Vertical = 0;
 	}
 }
