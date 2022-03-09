@@ -22,7 +22,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Rune
   - 
   - 
   - 
@@ -60,4 +60,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2946801533
+    locked: 0
+  - name: Interactable
+    uniqueID: 854790899
     locked: 0

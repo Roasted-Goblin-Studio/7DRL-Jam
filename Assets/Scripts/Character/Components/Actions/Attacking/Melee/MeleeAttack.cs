@@ -52,18 +52,14 @@ public class MeleeAttack : CharacterComponent
         return (Time.time >= _FirstAttackFrameTime && Time.time <= _LastAttackFrameTime);
     }
 
-    protected override bool HandlePlayerInput()
+    protected override void HandlePlayerInput()
     {
-        if (!base.HandlePlayerInput()) return false;
-
         if (DecideIfCharacterCanAttack()) Attack();
-
-        return true;
     }
 
-    protected override bool HandleAIInput()
+    protected override void HandleAIInput(StateController controller = null)
     {
-        return base.HandleAIInput();
+
     }
 
     private void Attack()

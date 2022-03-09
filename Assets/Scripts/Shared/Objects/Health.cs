@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 
     // Protected
     protected Character _Character;
+    protected Animator _Animator;
     protected float _OriginalMaxHealth;
 
     // Serialized
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour
         _OriginalMaxHealth = _MaxHealth;
         _Character.IsAlive = true;
         _Character.IsHitable = true;
+        _Animator = GetComponentInChildren<Animator>();
     }
 
     // Health indicator controller
@@ -57,8 +59,8 @@ public class Health : MonoBehaviour
     }
 
     public virtual void Damage(float amount){
-        if(!_Character.IsHitable){ return; }
-
+        if(!_Character.IsHitable) return;
+        if (_CurrentHealth <= 0) return;
         float newHealth = _CurrentHealth - amount;
 
         if (newHealth <= 0 && _CurrentHealth > 0)
@@ -74,8 +76,6 @@ public class Health : MonoBehaviour
 
     public virtual void Die(){
         // Check if _Character is not null
-        if( _Character ){ _Character.IsAlive = false; }
+        _Character.IsAlive = false; 
     }
-
-    // Add DoT
 }
