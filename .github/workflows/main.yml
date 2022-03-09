@@ -2,12 +2,12 @@ name: Build project
 
 on: 
   workflow_dispatch: {}
-  push:
-    branches:
-      - devops/pipeline
-  pull_request:
-    branches:
-      - master
+#   push:
+#     branches:
+#       - devops/pipeline
+#   pull_request:
+#     branches:
+#       - master
 
 env:
   ITCH_PROJECT_NAME: tossed-away
