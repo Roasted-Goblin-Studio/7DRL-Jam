@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class CharacterMovement : CharacterComponent
 {
 	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
-	
+	[Range(0, 10f)] [SerializeField] private float _MovementSpeed = 7.5f;
+
     private bool _FacingRight = true; 
 	private bool _UseMovementFollow = false;       // For determining which way the player is currently facing.      
     private Vector3 _Velocity = Vector3.zero;
-	private float _MovementSpeed = 7.5f;
 
 	private float _Horizontal;
 	private float _Vertical;
