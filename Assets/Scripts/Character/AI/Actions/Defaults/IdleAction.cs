@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Idle")]
+[CreateAssetMenu(menuName = "AI/Actions/General/Idle", fileName = "Idle")]
+
 public class IdleAction : AIAction
 {
     public override void Act(StateController controller)

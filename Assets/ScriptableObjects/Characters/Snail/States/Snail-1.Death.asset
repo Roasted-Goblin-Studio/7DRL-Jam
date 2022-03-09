@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
-  m_Name: IdleState
+  m_Name: Snail-1.Death
   m_EditorClassIdentifier: 
   AIActions:
-  - {fileID: 11400000, guid: f9e3c400f9f0bcd4abc7d6bc81fbe54d, type: 2}
+  - {fileID: 11400000, guid: 9e9d0df6b709b6a408be097e4dd5ac94, type: 2}
   AITransitions: []

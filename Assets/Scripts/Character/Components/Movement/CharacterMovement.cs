@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class CharacterMovement : CharacterComponent
 {
 	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
-	
+	[Range(0, 10f)] [SerializeField] private float _MovementSpeed = 7.5f;
+
     private bool _FacingRight = true; 
 	private bool _UseMovementFollow = false;       // For determining which way the player is currently facing.      
     private Vector3 _Velocity = Vector3.zero;
-	private float _MovementSpeed = 7.5f;
 
 	private float _Horizontal;
 	private float _Vertical;
@@ -35,11 +35,6 @@ public class CharacterMovement : CharacterComponent
     {
 		Horizontal = Input.GetAxisRaw("Horizontal");
 		Vertical = Input.GetAxisRaw("Vertical");
-    }
-
-    protected override void HandleAIInput(StateController controller = null)
-    {
-        // controller.Target;
     }
 
     protected override void HandlePhysicsComponentFunction()
@@ -88,5 +83,10 @@ public class CharacterMovement : CharacterComponent
 
 	public void UnlockMovement(){
 		_Character.CanMove = false;
+	}
+
+	public void StopAllMovement(){
+		Horizontal = 0;
+		Vertical = 0;
 	}
 }
