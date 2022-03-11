@@ -28441,21 +28441,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune
       objectReference: {fileID: 0}
-    - target: {fileID: 8062158365704513142, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731532332616850395, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014584509995079778, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
-      propertyPath: _MagicSeal
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d35a342eb93da4aa732d923b7a3284, type: 3}
