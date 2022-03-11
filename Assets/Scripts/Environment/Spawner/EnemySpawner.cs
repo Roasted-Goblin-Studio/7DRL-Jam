@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
  
     private GlobalStateManager _GlobalStateManager;
 
-
     // Start is called before the first frame update
     void Start()
     {
