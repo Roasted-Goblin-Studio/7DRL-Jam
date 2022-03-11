@@ -1,8 +1,8 @@
-﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : CharacterComponent 
+public class CharacterMeleeAttack : CharacterComponent
 {
     [SerializeField] private Transform _AttackPoint;
     [SerializeField] private float _AttackRange = 0.5f;
@@ -11,8 +11,8 @@ public class MeleeAttack : CharacterComponent
     [SerializeField] private float _AttackTime = 0.5f;
     [SerializeField] private int _AttackDamage = 1;
     [SerializeField] private LayerMask _EnemyLayers;
+    [SerializeField] private string _TargetTag;
 
-    private Animator _Animator;
     private float _TimeUntilCharacterCanAttack = 0f;
     private float _FirstAttackFrameTime = 0f;
     private float _LastAttackFrameTime = 0f;
@@ -20,31 +20,7 @@ public class MeleeAttack : CharacterComponent
     protected override void Start()
     {
         base.Start();
-
         _Animator = GetComponentInChildren<Animator>();
-    }
-
-    protected override void HandleBasicComponentFunction()
-    {
-        base.HandleBasicComponentFunction();
-
-        if (CheckIfAttacking())
-        {
-            if (!_AttackPoint) return;
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_AttackPoint.position, _AttackRange, _EnemyLayers);
-
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                if (enemy.tag != "HitBox") break;
-                _LastAttackFrameTime = Time.deltaTime;
-
-                var enemyHP = enemy.GetComponentInParent<Health>();
-
-                if (!enemyHP) return;
-
-                enemyHP.Damage(_AttackDamage);
-            }
-        }
     }
 
     private bool CheckIfAttacking()
@@ -54,23 +30,25 @@ public class MeleeAttack : CharacterComponent
 
     protected override void HandlePlayerInput()
     {
-        if (DecideIfCharacterCanAttack()) Attack();
+        if (!_AttackPoint) return;
+        if (Input.GetMouseButtonDown(_Character.CharacterInput.MouseSecondaryKeyCode)) Attack();
     }
 
-    protected override void HandleAIInput(StateController controller = null)
+    public void Attack()
     {
+        if(Time.time < _TimeUntilCharacterCanAttack) return;
 
-    }
-
-    private void Attack()
-    {
-        _TimeUntilCharacterCanAttack = Time.time + _AttackCooldown;
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_AttackPoint.position, _AttackRange, _EnemyLayers);
         _FirstAttackFrameTime = Time.time + _AttackStartup;
         _LastAttackFrameTime = Time.time + _AttackStartup + _AttackTime;
+        _TimeUntilCharacterCanAttack = Time.time + _AttackCooldown;
+        if (_Animator) _Animator.SetTrigger("meleeAttack");
 
-        if (_Animator)
+        foreach (Collider2D enemy in hitEnemies)
         {
-            _Animator.SetTrigger("meleeAttack");
+            if (enemy.tag != _TargetTag) return;
+            var enemyHP = enemy.GetComponentInParent<Health>();
+            if (enemyHP) enemyHP.Damage(_AttackDamage);
         }
     }
 
@@ -88,7 +66,6 @@ public class MeleeAttack : CharacterComponent
 
     private bool AttackInput()
     {
-        // TODO: remap to "character inputs" once ready
-        return (Input.GetKeyDown(KeyCode.Space));
+        return (Input.GetMouseButtonDown(_Character.CharacterInput.MouseSecondaryKeyCode));
     }
 }
