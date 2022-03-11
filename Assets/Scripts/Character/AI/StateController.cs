@@ -6,7 +6,8 @@ public class StateController : MonoBehaviour
 {
     // Brain of the AI
     [Header("State")]
-    [SerializeField] private AIState _CurrentState;
+    [SerializeField] private AIState _CurrentMacroState;
+    [SerializeField] private AIState _CurrentMIcroState;
     [SerializeField] private AIState _RemainInState;
     [SerializeField] private AIState _DeathState;
 
@@ -34,7 +35,7 @@ public class StateController : MonoBehaviour
     public Character Character { get => _Character; set => _Character = value; }
     public CharacterHealth CharacterHealth { get => _CharacterHealth; set => _CharacterHealth = value; }
     public AIState RemainInState { get => _RemainInState; set => _RemainInState = value; }
-    
+
     public Transform Target { get => _Target; set => _Target = value; }
     public GameObject GameObject {get => _GameObject; set => _GameObject = value;}
     
@@ -54,19 +55,26 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
-        if(_CurrentState == null) return;
-        if (Actionable) _CurrentState.EvaluateState(this);
+        if(!HandleStates()) return;
+        
+        if (Actionable) _CurrentMacroState.EvaluateState(this);
     }
 
     private void FixedUpdate() {
         if(Target == null) DetectIfPlayerHasEnteredAggroRange();
     }
 
+    private bool HandleStates(){
+        if(_CurrentMacroState == null) return false;
+        // Handle Current Mirco Action
+        
+        return true;
+    }
+
     public void TransitionToState(AIState nextState = null)
     {   
-        
-        if(!Character.IsAlive) _CurrentState = _DeathState;
-        else if (nextState != _RemainInState && nextState != null) _CurrentState = nextState;
+        if(!Character.IsAlive) _CurrentMacroState = _DeathState;
+        else if (nextState != _RemainInState && nextState != null) _CurrentMacroState = nextState;
     }
 
     private void DetectIfPlayerHasEnteredAggroRange()
