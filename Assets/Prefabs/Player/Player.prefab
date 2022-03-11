@@ -525,6 +525,9 @@ MonoBehaviour:
   _MovementSpeed: 7.5
   _UseMovementFollow: 0
   _FacingRight: 1
+  _MovementStartupLagLength: 0
+  _MovementStartupLagDecrease: 0
+  _MovementStartupLag: 0
 --- !u!114 &3987479419746471490
 MonoBehaviour:
   m_ObjectHideFlags: 0
