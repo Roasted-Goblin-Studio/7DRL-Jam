@@ -6097,9 +6097,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1532642901}
     m_Modifications:
     - target: {fileID: 4114528635357733682, guid: 43e3fd8be351ba243b50c4aa00aa466f, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114528635357733682, guid: 43e3fd8be351ba243b50c4aa00aa466f, type: 3}
       propertyPath: lerpDuration
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4114528635357733682, guid: 43e3fd8be351ba243b50c4aa00aa466f, type: 3}
+      propertyPath: startTransform
+      value: 
+      objectReference: {fileID: 297898465}
     - target: {fileID: 4114528635357733694, guid: 43e3fd8be351ba243b50c4aa00aa466f, type: 3}
       propertyPath: m_Name
       value: Cursor
