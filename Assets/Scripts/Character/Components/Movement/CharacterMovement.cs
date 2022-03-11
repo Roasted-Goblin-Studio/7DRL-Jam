@@ -50,11 +50,6 @@ public class CharacterMovement : CharacterComponent
 		// And then smoothing it out and applying it to the character
 		_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
 
-
-		// if facing right and horizontal is 1 = forward
-		// if facing left and horizontal is 1 = reverse
-
-
 		if (Horizontal > 0)
         {
 			_Animator.SetFloat("velocity", 1);
