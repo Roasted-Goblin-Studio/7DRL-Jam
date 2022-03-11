@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
-  m_Name: Snail-1.Follow
+  m_Name: Snail-1.MeleeAttack
   m_EditorClassIdentifier: 
   AIActions:
-  - {fileID: 11400000, guid: 27c21b274c87dd14cbf6a3e7653f43df, type: 2}
+  - {fileID: 11400000, guid: 99230e2858bb3cf4799f1d44d2c5ac75, type: 2}
   AITransitions:
   - Decision: {fileID: 11400000, guid: 24708b76b767fa74ea22792a6879b86a, type: 2}
-    TrueState: {fileID: 11400000, guid: 869b5f8774076d64dbb1b03df24879cf, type: 2}
-    FalseState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
+    TrueState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
+    FalseState: {fileID: 11400000, guid: e3a9825864887f041bb722a636feb514, type: 2}
