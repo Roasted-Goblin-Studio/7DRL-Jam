@@ -69,8 +69,7 @@ public class AIAttackAction : AIAction
         }
 
         if(_AttackIsActive && _AttackStageAttack){
-            // Debug.Log("Attack Stage Active");
-            
+            // Debug.Log("Attack Stage Active");         
             AttackAction(controller);
 
             if(Time.time > _AttackTimeWhenDone){
@@ -94,7 +93,6 @@ public class AIAttackAction : AIAction
                 _AttackCoolDownActive = true;
             }
         }
-
         if(_AttackCoolDownActive) // Debug.Log("Cooldown Active");
 
         if(_AttackCoolDownActive && Time.time > _AttackCoolDown) {

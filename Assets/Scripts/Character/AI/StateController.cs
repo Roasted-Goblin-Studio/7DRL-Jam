@@ -7,6 +7,7 @@ public class StateController : MonoBehaviour
     // Brain of the AI
     [Header("State")]
     [SerializeField] private AIState _StartingState;
+
     [SerializeField] private AIState _RemainInState;
     [SerializeField] private AIState _DeathState;
     private AIState _CurrentMacroState;
