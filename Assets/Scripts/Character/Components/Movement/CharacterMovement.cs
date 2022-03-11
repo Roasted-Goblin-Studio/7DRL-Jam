@@ -9,8 +9,8 @@ public class CharacterMovement : CharacterComponent
 	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
 	[Range(0, 10f)] [SerializeField] private float _MovementSpeed = 7.5f;
 	[SerializeField] private bool _UseMovementFollow = false; 
-  [SerializeField] private bool _FacingRight = true;     
-  private Vector3 _Velocity = Vector3.zero;
+    [SerializeField] private bool _FacingRight = true;     
+    private Vector3 _Velocity = Vector3.zero;
 
 	private float _Horizontal;
 	private float _Vertical;
@@ -29,7 +29,7 @@ public class CharacterMovement : CharacterComponent
     {
         base.Start();
         //Initialising the force to use on the RigidBody in various ways
-		    _LayerMasksThatStopsGameObject.Add(LayerMask.GetMask("Walls"));
+        _LayerMasksThatStopsGameObject.Add(LayerMask.GetMask("Walls"));
     }
 
 	protected override void HandlePlayerInput()
@@ -58,29 +58,32 @@ public class CharacterMovement : CharacterComponent
 		// And then smoothing it out and applying it to the character
 		_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
 
-		if (Horizontal > 0)
+		if (_Character.CharacterType == Character.CharacterTypes.Player)
         {
-			_Animator.SetFloat("velocity", 1);
-			_Animator.SetBool("isMoving", FacingRight);
-			_Animator.SetBool("isMovingReverse", !FacingRight);
-        }
-		else if (Horizontal < 0)
-        {
-			_Animator.SetFloat("velocity", 1);
-			_Animator.SetBool("isMoving", !FacingRight);
-			_Animator.SetBool("isMovingReverse", FacingRight);
-        }
-		else if (Vertical != 0)
-        {
-			_Animator.SetFloat("velocity", 1);
-			_Animator.SetBool("isMoving", true);
-			_Animator.SetBool("isMovingReverse", false);
-        }
-		else
-        {
-			_Animator.SetFloat("velocity", 0);
-			_Animator.SetBool("isMoving", false);
-			_Animator.SetBool("isMovingReverse", false);
+            if (Horizontal > 0)
+            {
+                _Animator.SetFloat("velocity", 1);
+                _Animator.SetBool("isMoving", FacingRight);
+                _Animator.SetBool("isMovingReverse", !FacingRight);
+            }
+            else if (Horizontal < 0)
+            {
+                _Animator.SetFloat("velocity", 1);
+                _Animator.SetBool("isMoving", !FacingRight);
+                _Animator.SetBool("isMovingReverse", FacingRight);
+            }
+            else if (Vertical != 0)
+            {
+                _Animator.SetFloat("velocity", 1);
+                _Animator.SetBool("isMoving", true);
+                _Animator.SetBool("isMovingReverse", false);
+            }
+            else
+            {
+                _Animator.SetFloat("velocity", 0);
+                _Animator.SetBool("isMoving", false);
+                _Animator.SetBool("isMovingReverse", false);
+            }
         }
 
 		if(UseMovementFollow){

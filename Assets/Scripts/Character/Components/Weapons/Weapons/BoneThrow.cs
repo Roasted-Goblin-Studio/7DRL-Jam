@@ -9,18 +9,29 @@ public class BoneThrow : Weapon
     protected override void UseWeapon()
     {
         base.UseWeapon();
-        SpawnProjectile();
-    }
-
-    private void SpawnProjectile(){
-        GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
-
+        var characterAnimator = _WeaponOwner.GetComponentInChildren<Animator>();
         var throwerHP = WeaponOwner.GetComponent<Health>();
 
-        if (throwerHP)
+        if (!characterAnimator || !throwerHP) return;
+
+        if (throwerHP.CurrentHealth > 1)
         {
             throwerHP.Damage(_SelfDamage);
+            characterAnimator.SetTrigger("rangedAttack");
+            SpawnProjectile();
         }
+        else
+        {
+            var head = SpawnProjectile();
+            head.GetComponent<Animator>().SetBool("headSpin", true);
+            characterAnimator.SetTrigger("headToss");
+        }
+
+    }
+
+    private GameObject SpawnProjectile(){
+
+        GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
 
         pooledProjectile.transform.position = _ProjectileSpawnPosition.position;
         pooledProjectile.SetActive(true);
@@ -30,5 +41,7 @@ public class BoneThrow : Weapon
 
         Projectile projectile = pooledProjectile.GetComponent<Projectile>();
         projectile.SetDirection(newDirection, transform.rotation, true);
+
+        return pooledProjectile;
     }
 }
