@@ -6,31 +6,31 @@ public class StateController : MonoBehaviour
 {
     // Brain of the AI
     [Header("State")]
-    [SerializeField] private AIState _CurrentMacroState;
-    [SerializeField] private AIState _CurrentMIcroState;
+    [SerializeField] private AIState _StartingState;
+
     [SerializeField] private AIState _RemainInState;
     [SerializeField] private AIState _DeathState;
+    private AIState _CurrentMacroState;
 
     [SerializeField] private float _DetectArea = 3f;
     [SerializeField] private LayerMask _TargetMask;
 
-    private CharacterMovement _CharacterMovement { get; set; }
-    private CharacterAttack _CharacterAttack { get; set; }
-    private Character _Character { get; set; }
-    private CharacterHealth _CharacterHealth {get; set;}
+    private CharacterMovement _CharacterMovement;
+    private CharacterMeleeAttack _CharacterMeleeAttack;
+    private CharacterAttack _CharacterAttack;
+    private Character _Character;
+    private CharacterHealth _CharacterHealth;
 
     private Transform _Target;
-    private Collider2D _TargetCollider { get; set; }
-    private GameObject _GameObject {get; set;}
+    private Collider2D _TargetCollider;
+    private GameObject _GameObject;
 
     private bool _TargetSet = false;
     private bool _IntroDone = false;
     private bool _Actionable = false;
 
-    // public Path _Path { get; set; }
-    // public Paths _Paths { get; set; }
-
     public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
+    public CharacterMeleeAttack CharacterMeleeAttack { get => _CharacterMeleeAttack; set => _CharacterMeleeAttack = value; }
     public CharacterAttack CharacterAttack { get => _CharacterAttack; set => _CharacterAttack = value; }
     public Character Character { get => _Character; set => _Character = value; }
     public CharacterHealth CharacterHealth { get => _CharacterHealth; set => _CharacterHealth = value; }
@@ -43,20 +43,33 @@ public class StateController : MonoBehaviour
     public bool IntroDone { get => _IntroDone; set => _IntroDone = value; }
     public bool Actionable { get => _Actionable; set => _Actionable = value; }
 
+    // Sensors
+    private MeleeSensor _MeleeSensor;
+    public MeleeSensor MeleeSensor { get => _MeleeSensor; set => _MeleeSensor = value; }
+
     private void Awake()
     {
+        // High level
         Actionable = true;
+
+        // Classic sets
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterHealth = GetComponent<CharacterHealth>();
         _CharacterAttack = GetComponent<CharacterAttack>();
         _Character = GetComponent<Character>();
+        _CharacterMeleeAttack = GetComponent<CharacterMeleeAttack>();
+
+        // Sensors
+        _MeleeSensor = GetComponentInChildren<MeleeSensor>();
+
+        // Lower priority
         _GameObject = gameObject;
+        _CurrentMacroState = _StartingState;
     }
 
     private void Update()
     {
         if(!HandleStates()) return;
-        
         if (Actionable) _CurrentMacroState.EvaluateState(this);
     }
 
