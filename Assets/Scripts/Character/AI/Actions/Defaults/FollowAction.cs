@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Actions/General/Follow", fileName = "Follow")]
 public class FollowAction : AIAction
 {
-    [SerializeField] [Range(0, 10)] private float _MinDistanceToFollow = 0;
+    [SerializeField] [Range(0, 10)] private float _MinDistanceToFollowHorizontally = 0;
+    [SerializeField] [Range(0, 10)] private float _MinDistanceToFollowVertically = 0;
 
     public override void Act(StateController controller)
     {
@@ -24,7 +25,7 @@ public class FollowAction : AIAction
         else controller.CharacterMovement.Vertical = -1;
         
         //If follow distance is reached stop
-        if(Mathf.Abs(controller.transform.position.x - controller.Target.position.x) < _MinDistanceToFollow) controller.CharacterMovement.Horizontal = 0;
-        if(Mathf.Abs(controller.transform.position.y - controller.Target.position.y) < _MinDistanceToFollow) controller.CharacterMovement.Vertical = 0;
+        if(Mathf.Abs(controller.transform.position.x - controller.Target.position.x) < _MinDistanceToFollowHorizontally) controller.CharacterMovement.Horizontal = 0;
+        if(Mathf.Abs(controller.transform.position.y - controller.Target.position.y) < _MinDistanceToFollowVertically) controller.CharacterMovement.Vertical = 0;
     }
 }

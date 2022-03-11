@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364b54e105532be4f8a17410d527b157, type: 3}
   m_Name: Snail-1.DetectPlayerInMeleeRange
   m_EditorClassIdentifier: 
+  _MinAttackRange: 0.75

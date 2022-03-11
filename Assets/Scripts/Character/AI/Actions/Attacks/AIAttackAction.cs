@@ -5,7 +5,7 @@ using UnityEngine;
 public class AIAttackAction : AIAction
 {
     [SerializeField] protected string _AttackName;
-    [SerializeField] protected bool _StopOnStart = false;
+    [SerializeField] protected bool _StopOnAttackStart = false;
     
     // General
     protected float _AttackTimer = 0;
@@ -51,11 +51,12 @@ public class AIAttackAction : AIAction
             _AttackStageTell = true;
             _AttackStartTime = Time.time;
             _AttackTellTimeWhenDone = _AttackStartTime + TimeOfTell;
+            if(_StopOnAttackStart) controller.CharacterMovement.StopAllMovement();
         }
 
         if(_AttackIsActive && _AttackStageTell){
             // Triggers tell
-            Debug.Log("Tell Stage Active");
+            // Debug.Log("Tell Stage Active");
 
             TellAction();
 
@@ -68,7 +69,7 @@ public class AIAttackAction : AIAction
         }
 
         if(_AttackIsActive && _AttackStageAttack){
-            Debug.Log("Attack Stage Active");
+            // Debug.Log("Attack Stage Active");
             
             AttackAction(controller);
 
@@ -81,7 +82,7 @@ public class AIAttackAction : AIAction
         }
 
         if(_AttackIsActive && _AttackStageEnd){
-            Debug.Log("End Stage Active");
+            // Debug.Log("End Stage Active");
 
             EndAction();
 
@@ -94,10 +95,10 @@ public class AIAttackAction : AIAction
             }
         }
 
-        if(_AttackCoolDownActive) Debug.Log("Cooldown Active");
+        if(_AttackCoolDownActive) // Debug.Log("Cooldown Active");
 
         if(_AttackCoolDownActive && Time.time > _AttackCoolDown) {
-            Debug.Log("Cooldown Finished");
+            // Debug.Log("Cooldown Finished");
             _AttackCoolDownActive = false;
             _CanAttackAgain = true;
         }
@@ -106,21 +107,21 @@ public class AIAttackAction : AIAction
     protected virtual void TellAction(){
         if(!_TellStageStarted){
             _TellStageStarted = true;
-            Debug.Log("Tell Action");
+            // Debug.Log("Tell Action");
         }
     }
 
     protected virtual void AttackAction(StateController controller){
         if(!_AttackStageStarted){
             _AttackStageStarted = true;
-            Debug.Log("Attack Action");
+            Attack(controller);
         }
     }
 
     protected virtual void EndAction(){
         if(!_EndStageStarted){
             _EndStageStarted = true;
-            Debug.Log("End Action");
+            // Debug.Log("End Action");
         }
     }
 
@@ -136,6 +137,10 @@ public class AIAttackAction : AIAction
         _EndStageStarted = false;
         _AttackCoolDownActive = false;
         _CanAttackAgain= true;
+
+    }
+
+    protected virtual void Attack(StateController controller){
 
     }
 }
