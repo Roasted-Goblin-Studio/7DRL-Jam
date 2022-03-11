@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterComponent : MonoBehaviour
 {
     protected Character _Character;
+    protected Animator _Animator;
     protected CharacterAchievements _CharacterAchievements;
     protected CharacterInput _CharacterInput;
     protected CharacterMovement _CharacterMovement;
@@ -16,6 +17,7 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void Awake(){
         _Character = GetComponent<Character>();
+        _Animator = GetComponentInChildren<Animator>();
         CharacterAchievements = GetComponent<CharacterAchievements>();
         CharacterInput = GetComponent<CharacterInput>();
         CharacterMovement = GetComponent<CharacterMovement>();
