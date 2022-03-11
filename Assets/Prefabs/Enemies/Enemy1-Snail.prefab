@@ -57,6 +57,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8125234, y: 0.4257846}
   m_EdgeRadius: 0
+--- !u!1 &1117973149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117973150}
+  m_Layer: 11
+  m_Name: Bite Hitbox Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117973150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117973149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1376272421}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376272420
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +116,7 @@ Transform:
   m_Children:
   - {fileID: 872888720}
   - {fileID: 2089332586}
+  - {fileID: 1117973150}
   m_Father: {fileID: 7527466947404297547}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,9 +130,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2089332586}
   - component: {fileID: 2089332587}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: HitBox
-  m_TagString: HitBox
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +167,108 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!1 &1596805224049265481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6885218079680299540}
+  m_Layer: 11
+  m_Name: Sensors
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6885218079680299540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596805224049265481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1016643355744418268}
+  m_Father: {fileID: 7527466947404297547}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2377246489948993795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016643355744418268}
+  - component: {fileID: 5600175311714921619}
+  - component: {fileID: 7277372146185117348}
+  m_Layer: 11
+  m_Name: Bite Sensor
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016643355744418268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377246489948993795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6885218079680299540}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5600175311714921619
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377246489948993795}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0309068, y: -0.21914494}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9506571, y: 1.8704064}
+  m_EdgeRadius: 0
+--- !u!114 &7277372146185117348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377246489948993795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f504b3f9a81c09741a2bac359a05ca05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TargetForSensor: HitBox
 --- !u!1 &7527466945561309478
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +385,7 @@ GameObject:
   - component: {fileID: 2827484607755130683}
   - component: {fileID: 1905835500}
   - component: {fileID: 1905835504}
+  - component: {fileID: 5872750804118010435}
   m_Layer: 11
   m_Name: Enemy1-Snail
   m_TagString: Enemy
@@ -272,6 +406,7 @@ Transform:
   m_Children:
   - {fileID: 7527466945561309479}
   - {fileID: 1376272421}
+  - {fileID: 6885218079680299540}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -353,10 +488,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d227dde480aa5f47a77ea632ac613ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CurrentState: {fileID: 11400000, guid: 36bce78ccc005a24bb7a19bc513ff273, type: 2}
+  _StartingState: {fileID: 11400000, guid: 36bce78ccc005a24bb7a19bc513ff273, type: 2}
   _RemainInState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
   _DeathState: {fileID: 11400000, guid: 3a4601e3f353a9348bb537930b7de604, type: 2}
   _DetectArea: 6
   _TargetMask:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &5872750804118010435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527466947404297557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3109a53c5af0b04686015601d83e133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AttackPoint: {fileID: 1117973150}
+  _AttackRange: 0.7
+  _AttackCooldown: 0
+  _AttackStartup: 0
+  _AttackTime: 0
+  _AttackDamage: 1
+  _EnemyLayers:
+    serializedVersion: 2
+    m_Bits: 4096
+  _TargetTag: 
