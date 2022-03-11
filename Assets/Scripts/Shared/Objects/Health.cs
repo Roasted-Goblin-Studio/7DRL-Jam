@@ -9,11 +9,11 @@ public class Health : MonoBehaviour
     // Protected
     protected Animator _Animator;
     protected float _OriginalMaxHealth;
-    protected float _CurrentHealth;
-    protected float _MaxHealth;
 
     // Serialized
-    [SerializeField] private float _StartingHealth;
+    // [SerializeField] protected Slider _HealthIndicatorBar;  // Put the slider object here
+    [SerializeField] protected float _CurrentHealth;
+    [SerializeField] protected float _MaxHealth;
 
     // Public
     public float CurrentHealth => _CurrentHealth; //READONLY
@@ -22,7 +22,6 @@ public class Health : MonoBehaviour
     protected virtual void Start()
     {  
         _Animator = GetComponentInChildren<Animator>();
-        _MaxHealth = _StartingHealth;
         _CurrentHealth = _MaxHealth;
         _OriginalMaxHealth = _MaxHealth;
     }

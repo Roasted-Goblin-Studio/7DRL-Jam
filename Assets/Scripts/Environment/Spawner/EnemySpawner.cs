@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private string _EnemyName;
 
     [SerializeField] private float _TimeBetweenSpawns = 0;
-    [SerializeField] private bool _SpawnEnemies = true;
     private float _TimeUntilNextEnemy = 0;
  
     private GlobalStateManager _GlobalStateManager;
@@ -24,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_GlobalStateManager.RoomIsActive && _SpawnEnemies) RunSpawner();
+        if(_GlobalStateManager.RoomIsActive) RunSpawner();
     }
 
     private void RunSpawner(){
