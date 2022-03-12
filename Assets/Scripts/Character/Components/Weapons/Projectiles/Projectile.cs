@@ -26,6 +26,8 @@ public class Projectile : MonoBehaviour
 
     public enum ProjectileTypes
     {
+        Bone,
+        Skull,
         Bullet,
         Beam,
         Falling
@@ -83,6 +85,11 @@ public class Projectile : MonoBehaviour
             DoEnemyCollision(other);
         }
 
+        DestroyProjectile();
+    }
+
+    protected virtual void DestroyProjectile()
+    {
         _ReturnObjectToPool.DestroyObject();
     }
 
@@ -101,5 +108,10 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D other) {
         
+    }
+
+    public virtual void SetProjectileType(ProjectileTypes type)
+    {
+        _ProjectileType = type;
     }
 }

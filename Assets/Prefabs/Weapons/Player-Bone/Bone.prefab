@@ -123,6 +123,7 @@ MonoBehaviour:
   _EnemyLayers:
     serializedVersion: 2
     m_Bits: 8704
+  _Skull: {fileID: 1042016474606829890, guid: 8090b4ce00f065b4ea677efef971a2bb, type: 3}
 --- !u!114 &-1371728370533433506
 MonoBehaviour:
   m_ObjectHideFlags: 0

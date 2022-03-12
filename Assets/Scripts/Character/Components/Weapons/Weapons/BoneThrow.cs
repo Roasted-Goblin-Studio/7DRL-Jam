@@ -18,18 +18,18 @@ public class BoneThrow : Weapon
         {
             throwerHP.Damage(_SelfDamage, false);
             characterAnimator.SetTrigger("rangedAttack");
-            SpawnProjectile();
+            SpawnProjectile(Projectile.ProjectileTypes.Bone);
         }
         else
         {
-            var head = SpawnProjectile();
+            var head = SpawnProjectile(Projectile.ProjectileTypes.Skull);
             head.GetComponent<Animator>().SetBool("headSpin", true);
             characterAnimator.SetTrigger("headToss");
         }
 
     }
 
-    private GameObject SpawnProjectile(){
+    private GameObject SpawnProjectile(Projectile.ProjectileTypes type){
 
         GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
 
@@ -40,6 +40,7 @@ public class BoneThrow : Weapon
         Vector2 newDirection = _WeaponOwner.MouseCursor.GetClampedDirectionofMouse();
 
         Projectile projectile = pooledProjectile.GetComponent<Projectile>();
+        projectile.SetProjectileType(type);
         projectile.SetDirection(newDirection, transform.rotation, true);
 
         return pooledProjectile;
