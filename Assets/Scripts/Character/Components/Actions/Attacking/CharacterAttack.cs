@@ -24,4 +24,9 @@ public class CharacterAttack : CharacterComponent
     public void AIInitiateWeapon(Transform _TargetPosition){
         _PrimaryWeapon.AIInitiateUseWeapon(_TargetPosition);
     }
+
+    public void AttackAnimation()
+    {
+        if (_Animator) _Animator.SetTrigger("rangedAttack");
+    }
 }
