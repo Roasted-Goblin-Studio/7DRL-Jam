@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPanelComponent
 {
+    public enum eMenuButton {
+        Start, Options, Exit
+    };
+
+    public eMenuButton type;
+    private bool isEnabled = true;
 
     public delegate void OnMenuButtonHover(MenuButton button);
     public static event OnMenuButtonHover onMenuButtonHover;
-
-    public int order = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +27,25 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         
     }
 
+    public void EnableComponent(bool initialSet) 
+    {
+        isEnabled = true;
+    }
+
+    public void DisableComponent(bool initialSet) 
+    {
+        isEnabled = false;
+    }
+
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
-    {
-        //Output to console the GameObject's name and the following message
-        Debug.Log("Cursor Entering " + name + " GameObject");
-        onMenuButtonHover?.Invoke(this);
+   {
+        if (isEnabled) 
+        {
+            //Output to console the GameObject's name and the following message
+            Debug.Log("Cursor Entering " + name + " GameObject");
+            onMenuButtonHover?.Invoke(this);
+        }
     }
 
     //Detect when Cursor leaves the GameObject

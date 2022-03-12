@@ -4,8 +4,34 @@ using UnityEngine;
 
 public class MenuPanel : MonoBehaviour
 {
+    private IPanelComponent[] components;
 
-    [SerializeField] GameObject[] buttons;
+    public void EnablePanel(bool initialSet) 
+    {
+        gameObject.SetActive(true);
+        if (gameObject.active) {
+            components = GetComponentsInChildren<IPanelComponent>();
+            foreach (IPanelComponent component in components) {
+                component.EnableComponent(initialSet);
+            }
+        }
+    }
+
+    public void DisablePanel(bool initialSet) 
+    {
+        if (gameObject.active) {
+            components = GetComponentsInChildren<IPanelComponent>();
+            foreach (IPanelComponent component in components) 
+            {
+                component.DisableComponent(initialSet);
+            }
+        }
+    }
+
+    void Awake() 
+    {
+        components = GetComponentsInChildren<IPanelComponent>();
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: d3721c069c4df3e47b5142cf6de12bbc
   - enabled: 1
-    path: Assets/Scenes/Phil-Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Rooms/Tutorial.unity
+    guid: 025cdfd55714c994ba12efef953a8eb0
   m_configObjects: {}
