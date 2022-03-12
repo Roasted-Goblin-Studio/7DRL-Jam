@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject: []
+  _DebugMode: 0
   _MovementSmoothing: 0.05
   _MovementSpeed: 7.5
   _UseMovementFollow: 1
@@ -212,6 +212,10 @@ MonoBehaviour:
   _MovementStartupLagLength: 2
   _MovementStartupLagDecrease: 2
   _MovementStartupLag: 1
+  _ObstacleDetectionRange: 0.8
+  _LayerMasksThatStopsGameObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &7888913298196796972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,4 +514,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03cea33ded8f5a4d83dd86c5663926b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetForSensor: HitBox
+  _TargetForSensor: Player

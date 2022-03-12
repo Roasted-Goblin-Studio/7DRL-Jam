@@ -5,22 +5,32 @@ using UnityEngine.Events;
 
 public class CharacterMovement : CharacterComponent
 {
-	[SerializeField] private List<LayerMask> _LayerMasksThatStopsGameObject;
+	// SETTINGS
+	[Header("Basic")]
 	[Range(0, .3f)] [SerializeField] private float _MovementSmoothing = .05f;	// How much to smooth out the movement 
 	[Range(0, 10f)] [SerializeField] private float _MovementSpeed = 7.5f;
 	[SerializeField] private bool _UseMovementFollow = false; 
     [SerializeField] private bool _FacingRight = true;     
-    private Vector3 _Velocity = Vector3.zero;
 
 	[Header("Movement Startup Lag")]
 	[SerializeField] private float _MovementStartupLagLength = 0;
 	[SerializeField] private float _MovementStartupLagDecrease = 0;
 	[SerializeField] private bool _MovementStartupLag = false;
 	
+	[Header("Obstacle detection")]
+	[Range(0, 10f)] [SerializeField] private float _ObstacleDetectionRange = 1.25f;
+	[SerializeField] private List<LayerMask> _LayerMasksThatStopsGameObject;
+	
+
+	// PRIVATES
+	private Vector2 _ObstacleBoxCheckSize = new Vector2(0, 0);
+	private Vector3 _Velocity = Vector3.zero;
 	private float _Horizontal;
 	private float _Vertical;
 	private float _MovementStartupLagEndTime;
+	
 
+	// PUBLICS
 	public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
 	public bool UseMovementFollow { get => _UseMovementFollow; set => _UseMovementFollow = value; }
 	public float Horizontal { get => _Horizontal; set => _Horizontal = value; }
@@ -53,13 +63,6 @@ public class CharacterMovement : CharacterComponent
 	{
 		if (_Character.CanMove == false) return;
 		// Move the character by finding the target velocity
-	
-		foreach (LayerMask layer in _LayerMasksThatStopsGameObject){ 
-			RaycastHit2D layerHit = Physics2D.Raycast(transform.position, _FacingRight ? Vector2.right : Vector2.left, 2, layer); 
-			// Need to add the actual logic here but I'll come back to this.
-			// _Horizontal = 0;
-			// _Vertical = 0;
-		}
 
 		float MovementSpeed = _MovementSpeed;
 		if(_MovementStartupLag){
@@ -71,11 +74,26 @@ public class CharacterMovement : CharacterComponent
 			MovementSpeed /= _MovementStartupLagDecrease;
 		}
 		
-
+		
 		Vector3 targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
+
+		// Check for Wall obstacles 
+		if(DebugMode) Debug.DrawRay(_Character.CharacterHitbox.bounds.center, Vector3.ClampMagnitude(targetVelocity, _ObstacleDetectionRange), Color.green, 0, true);
+		
+		foreach (LayerMask layer in _LayerMasksThatStopsGameObject){ 
+			RaycastHit2D layerHit = Physics2D.Raycast(_Character.CharacterHitbox.bounds.center, targetVelocity, _ObstacleDetectionRange, layer); 
+			// Need to add the actual logic here but I'll come back to this.
+			if(layerHit){
+				_Horizontal = 0;
+				_Vertical = 0;
+			}
+		}
+
+		// Apply force
+		targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
 		// And then smoothing it out and applying it to the character
 		_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
-
+		
 		if (_Character.CharacterType == Character.CharacterTypes.Player)
         {
             if (Horizontal > 0)
@@ -143,4 +161,17 @@ public class CharacterMovement : CharacterComponent
 		Horizontal = 0;
 		Vertical = 0;
 	}
+
+	// private void EvaluateObstacle()
+    // {
+    //     // Raycasting if obstacle collision in movement
+    //     RaycastHit2D hit = Physics2D.BoxCast(_Character.CharacterHitbox.bounds.center, _ObstacleBoxCheckSize, 0f, _WanderDirection, _WanderDirection.magnitude, _ObstacleMask);
+    //     Debug.DrawRay(_Character.CharacterHitbox.bounds.center, _WanderDirection);
+    //     // If there is, pick a new direction
+    //     if (hit)
+    //     {
+    //         _WanderDirection.x = Random.Range(-_WanderArea, _WanderArea);
+    //         _WanderCheckTime = Time.time;
+    //     }
+    // }
 }

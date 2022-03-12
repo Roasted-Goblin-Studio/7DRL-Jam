@@ -38,10 +38,11 @@ public class FollowAction : AIAction
                 if(controller.transform.position.x < controller.Target.position.x) horizontalMovement = -1;
                 else horizontalMovement = 1;
             }
-            if(Mathf.Abs(controller.transform.position.y - controller.Target.position.y) < _MinDistanceToStayAwayFromTarget)
+            if(Mathf.Abs(controller.transform.position.y - controller.Target.position.y) < _MinDistanceToStayAwayFromTarget){
                 if(controller.transform.position.y < controller.Target.position.y) verticalMovement = -1;
                 else verticalMovement = 1;
             }
+        }
 
         controller.CharacterMovement.Horizontal = horizontalMovement;
         controller.CharacterMovement.Vertical = verticalMovement;
