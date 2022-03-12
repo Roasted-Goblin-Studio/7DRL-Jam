@@ -20,4 +20,8 @@ public class CharacterAttack : CharacterComponent
     {   
         if(Input.GetMouseButtonDown(_Character.CharacterInput.MousePrimaryKeyCode)) _PrimaryWeapon.InitiateUseWeapon();
     }
+
+    public void AIInitiateWeapon(Transform _TargetPosition){
+        _PrimaryWeapon.AIInitiateUseWeapon(_TargetPosition);
+    }
 }
