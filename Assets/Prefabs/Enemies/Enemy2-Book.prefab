@@ -111,6 +111,7 @@ MonoBehaviour:
   _TargetMask:
     serializedVersion: 2
     m_Bits: 5120
+  _FollowPlayerMovement: 0
 --- !u!114 &3297760919961096751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject: []
+  _DebugMode: 0
   _MovementSmoothing: 0.05
   _MovementSpeed: 7.5
   _UseMovementFollow: 1
@@ -158,6 +159,10 @@ MonoBehaviour:
   _MovementStartupLagLength: 2
   _MovementStartupLagDecrease: 2
   _MovementStartupLag: 1
+  _ObstacleDetectionRange: 0.8
+  _LayerMasksThatStopsGameObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2912441304716656029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3109a53c5af0b04686015601d83e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _AttackPoint: {fileID: 7391292735424639536}
   _AttackRange: 0.6
   _AttackCooldown: 0

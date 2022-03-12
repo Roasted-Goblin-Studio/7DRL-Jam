@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872888720}
   - component: {fileID: 872888721}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6885218079680299540}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Sensors
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 1016643355744418268}
   - component: {fileID: 5600175311714921619}
   - component: {fileID: 7277372146185117348}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Bite Sensor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -470,9 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject:
-  - serializedVersion: 2
-    m_Bits: 65536
+  _DebugMode: 0
   _MovementSmoothing: 0.05
   _MovementSpeed: 1.25
   _UseMovementFollow: 1
@@ -480,6 +478,10 @@ MonoBehaviour:
   _MovementStartupLagLength: 0
   _MovementStartupLagDecrease: 0
   _MovementStartupLag: 0
+  _ObstacleDetectionRange: 0.8
+  _LayerMasksThatStopsGameObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &1905835504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +501,7 @@ MonoBehaviour:
   _TargetMask:
     serializedVersion: 2
     m_Bits: 4096
+  _FollowPlayerMovement: 0
 --- !u!114 &5872750804118010435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3109a53c5af0b04686015601d83e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _AttackPoint: {fileID: 1117973150}
   _AttackRange: 0.7
   _AttackCooldown: 0

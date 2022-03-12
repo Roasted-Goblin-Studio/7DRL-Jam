@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Phil-Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main Menu.unity
+    guid: d3721c069c4df3e47b5142cf6de12bbc
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Tutorial.unity
+    guid: 025cdfd55714c994ba12efef953a8eb0
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room1.unity
+    guid: 5d2edf0c855d3734989712782f82f60f
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room2.unity
+    guid: 1c9406bde66c89841b7f159f9abead31
   m_configObjects: {}

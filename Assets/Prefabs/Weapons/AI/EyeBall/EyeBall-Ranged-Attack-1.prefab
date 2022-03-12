@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectPrefab: {fileID: 2600414436229915154, guid: 9404696f0f81d114fa95b2ade914e4a1, type: 3}
-  _PoolSize: 10
+  _PoolSize: 4
   _ObjectPoolerName: EyeBall Projectile
 --- !u!114 &3801446151934620231
 MonoBehaviour:

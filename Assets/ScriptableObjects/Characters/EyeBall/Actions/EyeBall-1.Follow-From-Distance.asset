@@ -15,3 +15,4 @@ MonoBehaviour:
   _MinDistanceToFollowHorizontally: 6
   _MinDistanceToFollowVertically: 6
   _BackUpOnApproach: 1
+  _MinDistanceToStayAwayFromTarget: 3

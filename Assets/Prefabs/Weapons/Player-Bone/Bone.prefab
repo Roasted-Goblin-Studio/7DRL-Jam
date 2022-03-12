@@ -120,7 +120,7 @@ MonoBehaviour:
   _ProjectileType: 0
   _FriendlyLayers:
     serializedVersion: 2
-    m_Bits: 5120
+    m_Bits: 136192
   _EnemyLayers:
     serializedVersion: 2
     m_Bits: 8704
