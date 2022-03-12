@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505581648}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Weapon-Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 5798318783972523959}
   - component: {fileID: 6617115662347528962}
   - component: {fileID: 6298553416427775856}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Bite Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7104295109679812693}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Melee Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
