@@ -18,8 +18,7 @@ public class Sensor : MonoBehaviour
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
-    {   
-        Debug.Log(other.tag);    
+    {     
         if(other.tag == _TargetForSensor){
             _SensorActivated = true;
         }

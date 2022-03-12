@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     //~~ COMPONENTS ~~\\
     // Used to contain metadata of the character state and attached Objects
     [SerializeField] protected CharacterTypes _CharacterType;
+    [SerializeField] protected Collider2D _CharacterHitbox;
     protected CharacterInput _CharacterInput;
 
     protected Rigidbody2D _RigidBody2D;
@@ -14,6 +15,7 @@ public class Character : MonoBehaviour
     
     // Unity General
     public Rigidbody2D RigidBody2D { get => _RigidBody2D; set => _RigidBody2D = value; }
+    public Collider2D CharacterHitbox { get => _CharacterHitbox; set => _CharacterHitbox = value; }
     public Camera Camera { get => _Camera; set => _Camera = value; }
 
     // Inputs
