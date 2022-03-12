@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3987479419634213077}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MeleeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 3987479419746471495}
   - component: {fileID: 3987479419746471551}
   - component: {fileID: 3930942249676555774}
+  - component: {fileID: 122187534}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -624,6 +625,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _TargetTag: Enemy
+--- !u!114 &122187534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3987479419746471494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff644687c4cae4d4d8f6119066a942f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3987479419777435572
 GameObject:
   m_ObjectHideFlags: 0
