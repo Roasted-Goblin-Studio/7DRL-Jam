@@ -13,10 +13,10 @@ public class CharacterHealth : Health
         _Character.IsHitable = true;
     }
 
-    public override void Damage(float amount)
+    public override void Damage(float amount, bool playHurtAnim = true)
     {
         if(_Character && !_Character.IsHitable) return;
-        base.Damage(amount);
+        base.Damage(amount, playHurtAnim);
     }
 
     public override void Die()
