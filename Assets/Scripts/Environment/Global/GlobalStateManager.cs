@@ -16,6 +16,11 @@ public class GlobalStateManager : MonoBehaviour
 
     private void Update()
     {
-        if(Time.time > 2 && !_RoomIsActive) _RoomIsActive = true;
+        
+    }
+
+    private void OnEnable()
+    {
+        
     }
 }
