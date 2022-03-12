@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5344704511424872402}
   - component: {fileID: 8447548843142286164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065065293598999272}
   - component: {fileID: 2847572870125337151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6538300660138191140}
   - component: {fileID: 6538300660138191141}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 111399907
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 27781e2d7de7f6648ba7e47b0fa0a1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6538300661312393936}
   - component: {fileID: 6538300661312393937}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6538300661508705708}
   - component: {fileID: 1434468259814968493}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MagicSeal
   m_TagString: InvisibleWall
   m_Icon: {fileID: 0}
@@ -330,4 +330,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edea92e039010e419dcaa16e17eaa8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RunesRequired: 3
+  _RunesRequired: 4
