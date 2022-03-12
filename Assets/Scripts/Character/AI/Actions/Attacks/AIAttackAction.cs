@@ -106,7 +106,7 @@ public class AIAttackAction : AIAction
         if(!_TellStageStarted){
             _TellStageStarted = true;
             if(_StopOnAttackStart) controller.CharacterMovement.StopAllMovement();
-            // Debug.Log("Tell Action");
+            Debug.Log("Tell Action");
         }
     }
 

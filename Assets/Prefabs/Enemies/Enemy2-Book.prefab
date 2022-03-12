@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 4985169415415307406}
   - component: {fileID: 5487455191346678053}
   - component: {fileID: 8809771642069896772}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Bite Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,8 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4985169416532418197}
   - component: {fileID: 4985169416532418199}
-  - component: {fileID: 4985169416532418198}
-  - component: {fileID: 2431332469793703765}
+  - component: {fileID: 5910975283149703470}
   m_Layer: 11
   m_Name: Sprites
   m_TagString: Untagged
@@ -419,7 +418,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4985169416532418198
+--- !u!95 &5910975283149703470
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -429,7 +428,7 @@ Animator:
   m_GameObject: {fileID: 4985169416532418196}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a5c9754a8056ca945b46887889ab6f96, type: 2}
+  m_Controller: {fileID: 9100000, guid: 406158612b5b99f41bd626adf57368d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -438,18 +437,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2431332469793703765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985169416532418196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8efc7407b23c145b4d67087c1997d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5540327354342864797
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7391292735424639536}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Bite Hitbox Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

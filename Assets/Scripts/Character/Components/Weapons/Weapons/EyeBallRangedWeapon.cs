@@ -13,7 +13,6 @@ public class EyeBallRangedWeapon : Weapon
     }
 
     private GameObject SpawnProjectile(Transform targetPosition){
-
         GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
 
         pooledProjectile.transform.position = _ProjectileSpawnPosition.position;

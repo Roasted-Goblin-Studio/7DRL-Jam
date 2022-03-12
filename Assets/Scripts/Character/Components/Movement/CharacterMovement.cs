@@ -121,6 +121,10 @@ public class CharacterMovement : CharacterComponent
                 _Animator.SetBool("isMovingReverse", false);
             }
         }
+		else
+        {
+            _Animator.SetBool("isMoving", Horizontal != 0 || Vertical != 0);
+        }
 
 		if(UseMovementFollow){
 			// If the input is moving the player right and the player is facing left...
