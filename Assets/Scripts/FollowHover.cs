@@ -9,14 +9,20 @@ public class FollowHover : MonoBehaviour, IPanelComponent
     [SerializeField] private Transform startTransform;
     private float lerpDuration = .5f; 
     private Vector3 targetPos;
+    private bool isEnabled = true;
 
     public void EnableComponent(bool initialSet) {
+        isEnabled = true;
         targetPos = new Vector3(transform.position.x, startTransform.position.y, transform.position.z);
         transform.position = targetPos;    
     }
 
     public void DisableComponent(bool initialSet) {
+        isEnabled = false;
+        if (!initialSet) 
+        {
 
+        }
     }
 
     void OnEnable() {
@@ -37,9 +43,11 @@ public class FollowHover : MonoBehaviour, IPanelComponent
     // Update is called once per frame
     void Update()
     {
-        // Move to hovered item
-        float step =  speed * Time.deltaTime; // calculate distance to move
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+        if (isEnabled) {
+            // Move to hovered item
+            float step =  speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+        }
     }
 
     void ChangePosition(MenuButton button) {

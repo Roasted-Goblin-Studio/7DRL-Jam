@@ -6,24 +6,25 @@ using UnityEngine.UI;
 public class PanelComponentImage : MonoBehaviour, IPanelComponent
 {
     float fullLerpDuration = 1f; 
-    float targetAlpha = 0f;
+
+    float initialFullLerpDuration = 2f;
     
     private Image image;
 
-    IEnumerator Lerp()
+    IEnumerator Lerp(float duration, float target)
     {
         float timeElapsed = 0;
-        float lerpDuration = (Mathf.Abs(image.color.a - targetAlpha) / 1f) * fullLerpDuration;
+        float lerpDuration = (Mathf.Abs(image.color.a - target) / 1f) * duration;
         float startAlpha = image.color.a;
         float newAlpha = 0f;
         while (timeElapsed < lerpDuration)
         {
-            newAlpha = Mathf.Lerp(startAlpha, targetAlpha, timeElapsed / lerpDuration);
+            newAlpha = Mathf.Lerp(startAlpha, target, timeElapsed / lerpDuration);
             image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        newAlpha = targetAlpha;
+        newAlpha = target;
         image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
     }
 
@@ -31,12 +32,12 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
     {
         if (initialSet) 
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
-        } 
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            StartCoroutine(Lerp(initialFullLerpDuration, 1f));
+        }       
         else 
         {
-            targetAlpha = 1f;
-            StartCoroutine(Lerp());
+            StartCoroutine(Lerp(fullLerpDuration, 1f));
         }
     }
 
@@ -48,9 +49,8 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
         }
         else 
         {
-            targetAlpha = 0f;
             StopCoroutine("Lerp");
-            StartCoroutine(Lerp());
+            StartCoroutine(Lerp(fullLerpDuration, 0f));
         }
     }
 
