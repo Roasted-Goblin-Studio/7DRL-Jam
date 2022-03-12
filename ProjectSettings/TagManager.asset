@@ -18,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Foreground
   - Rune
   - Player
   - Enemy
@@ -61,6 +61,6 @@ TagManager:
   - name: Player
     uniqueID: 2946801533
     locked: 0
-  - name: Interactable
+  - name: Foreground
     uniqueID: 854790899
     locked: 0
