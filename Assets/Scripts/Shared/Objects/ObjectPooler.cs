@@ -27,6 +27,7 @@ public class ObjectPooler : MonoBehaviour
     protected void Start()
     {
         ParentPoolObject = new GameObject(ObjectPoolerName());
+        ParentPoolObject.AddComponent(typeof(Savable));
         Refill();
     }
 
