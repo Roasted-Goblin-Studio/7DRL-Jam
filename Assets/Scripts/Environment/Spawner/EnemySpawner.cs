@@ -29,13 +29,12 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_GlobalStateManager.RoomIsActive && _SpawnEnemiesEnabled) RunSpawner();
+        if(_SpawnEnemiesEnabled) RunSpawner();
     }
 
     private void RunSpawner(){
