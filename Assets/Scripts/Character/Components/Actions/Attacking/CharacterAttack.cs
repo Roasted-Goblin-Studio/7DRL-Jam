@@ -18,6 +18,7 @@ public class CharacterAttack : CharacterComponent
 
     protected override void HandlePlayerInput()
     {   
+        if(!_Character.IsActionable) return;
         if(Input.GetMouseButtonDown(_Character.CharacterInput.MousePrimaryKeyCode)) _PrimaryWeapon.InitiateUseWeapon();
     }
 

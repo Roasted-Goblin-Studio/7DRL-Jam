@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected CharacterTypes _CharacterType;
     [SerializeField] protected Collider2D _CharacterHitbox;
     protected CharacterInput _CharacterInput;
+    protected CharacterMovement _CharacterMovement;
 
     protected Rigidbody2D _RigidBody2D;
     protected Camera _Camera;
@@ -17,6 +18,8 @@ public class Character : MonoBehaviour
     public Rigidbody2D RigidBody2D { get => _RigidBody2D; set => _RigidBody2D = value; }
     public Collider2D CharacterHitbox { get => _CharacterHitbox; set => _CharacterHitbox = value; }
     public Camera Camera { get => _Camera; set => _Camera = value; }
+    
+    public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
 
     // Inputs
     public CharacterInput CharacterInput { get => _CharacterInput; }
@@ -41,6 +44,7 @@ public class Character : MonoBehaviour
 
         _CharacterInput = GetComponent<CharacterInput>();
         _MouseCursor = GetComponent<MouseCursor>();
+        _CharacterMovement = GetComponent<CharacterMovement>();
     }
 
     protected virtual void Start() {
@@ -51,11 +55,30 @@ public class Character : MonoBehaviour
     private bool _IsHitable = false;
     private bool _IsAlive = false;
     // TODO: manage these flags properly to ensure they are not unexptectedly tampered with by multiple components
-    private bool _IsActionable = true;
-    private bool _CanMove = true;
+    [SerializeField] private bool _IsActionable = true;
+    [SerializeField] private bool _CanMove = true;
 
     public bool IsHitable { get => _IsHitable; set => _IsHitable = value; }
     public bool IsAlive { get => _IsAlive; set => _IsAlive = value; }
     public bool IsActionable { get => _IsActionable; set => _IsActionable = value; }
     public bool CanMove { get => _CanMove; set => _CanMove = value; }
+
+
+    public void Lock(){
+        _IsActionable = false;
+        _CanMove = false;
+    }
+
+    public void Unlock(){
+        _IsActionable = true;
+        _CanMove = true;
+    }
+
+    public void FaceRight(){
+        if(!CharacterMovement.FacingRight) CharacterMovement.Flip();
+    }
+
+    public void FaceLeft(){
+        if(CharacterMovement.FacingRight) CharacterMovement.Flip();
+    }
 }
