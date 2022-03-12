@@ -28,6 +28,8 @@ public class Character : MonoBehaviour
     private MouseCursor _MouseCursor;
     public MouseCursor MouseCursor { get => _MouseCursor; }
 
+    // Global State Manager
+    private GlobalStateManager _GlobalStateManager;
 
     // Customs
     public CharacterTypes CharacterType { get => _CharacterType; set => _CharacterType = value; }
@@ -48,7 +50,12 @@ public class Character : MonoBehaviour
     }
 
     protected virtual void Start() {
-        
+        _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
+    }
+
+    private void Update() {
+        HandlePauseInput();
+        if(_GameIsPaused) GameIsPaused();
     }
 
     //~~ FLAGS ~~\\
@@ -62,6 +69,8 @@ public class Character : MonoBehaviour
     public bool IsAlive { get => _IsAlive; set => _IsAlive = value; }
     public bool IsActionable { get => _IsActionable; set => _IsActionable = value; }
     public bool CanMove { get => _CanMove; set => _CanMove = value; }
+    
+    private bool _GameIsPaused = false;
 
 
     public void Lock(){
@@ -80,5 +89,43 @@ public class Character : MonoBehaviour
 
     public void FaceLeft(){
         if(CharacterMovement.FacingRight) CharacterMovement.Flip();
+    }
+
+    private void HandlePauseInput(){
+        if(_GlobalStateManager.GameIsPaused && !_GameIsPaused){
+            PauseGame();
+            _GameIsPaused = true;
+        }
+
+        if(!_GlobalStateManager.GameIsPaused && _GameIsPaused){
+            UnpauseGame();
+            _GameIsPaused = false;
+        }
+
+        if(_GlobalStateManager == null || _CharacterInput == null) return;
+        if (Input.GetKeyDown(_CharacterInput.PauseKeyCode) && !_GlobalStateManager.InPauseMenu){
+            _GlobalStateManager.GameIsPaused = true;
+            _GlobalStateManager.InPauseMenu = true;
+        }
+        else if(Input.GetKeyDown(_CharacterInput.PauseKeyCode) && _GlobalStateManager.InPauseMenu){
+            _GlobalStateManager.GameIsPaused = false;
+            _GlobalStateManager.InPauseMenu = false;
+        }
+    }
+
+    private void PauseGame(){
+        IsActionable = false;
+        CanMove = false;
+        GameIsPaused();
+    }
+
+    private void UnpauseGame(){
+        IsActionable = true;
+        CanMove = true;
+    }
+
+    private void GameIsPaused(){
+        _CharacterMovement.ForceStopAllMovement();
+        
     }
 }
