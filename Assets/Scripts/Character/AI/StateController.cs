@@ -26,6 +26,7 @@ public class StateController : MonoBehaviour
     private Transform _Target;
     private Collider2D _TargetCollider;
     private GameObject _GameObject;
+    private GameObject _TargetGameObject;
 
     private bool _TargetSet = false;
     private bool _IntroDone = false;
@@ -39,6 +40,7 @@ public class StateController : MonoBehaviour
     public AIState RemainInState { get => _RemainInState; set => _RemainInState = value; }
 
     public Transform Target { get => _Target; set => _Target = value; }
+    public GameObject TagetGameObject { get => _TargetGameObject; set => _TargetGameObject = value; }
     public GameObject GameObject {get => _GameObject; set => _GameObject = value;}
     
     public bool TargetSet { get => _TargetSet; set => _TargetSet = value; }
@@ -47,7 +49,12 @@ public class StateController : MonoBehaviour
 
     // Sensors
     private MeleeSensor _MeleeSensor;
+    private ExplodeSensor _ExplodeSensor;
+    private ExplodeRangeSensor _ExplodeRangeSensor;
+    
     public MeleeSensor MeleeSensor { get => _MeleeSensor; set => _MeleeSensor = value; }
+    public ExplodeRangeSensor ExplodeRangeSensor { get => _ExplodeRangeSensor; set => _ExplodeRangeSensor = value; }
+    public ExplodeSensor ExplodeSensor { get => _ExplodeSensor; set => _ExplodeSensor = value; }
 
     private void Awake()
     {
@@ -63,6 +70,9 @@ public class StateController : MonoBehaviour
 
         // Sensors
         _MeleeSensor = GetComponentInChildren<MeleeSensor>();
+        _ExplodeSensor = GetComponentInChildren<ExplodeSensor>();
+        _ExplodeRangeSensor = GetComponentInChildren<ExplodeRangeSensor>();
+
 
         // Lower priority
         _GameObject = gameObject;

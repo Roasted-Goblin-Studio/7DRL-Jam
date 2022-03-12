@@ -20,8 +20,6 @@ public class EyeBallRangedWeapon : Weapon
         pooledProjectile.SetActive(true);
 
         // NewDirection should be towards the player
-        //Vector2 newDirection = _WeaponOwner.MouseCursor.GetClampedDirectionofMouse();
-        Debug.Log(targetPosition.position + " | " + _WeaponOwner.transform.position);
         Vector2 newDirection = (targetPosition.position - _WeaponOwner.transform.position);
         newDirection.x = Mathf.Clamp(newDirection.x, -1, 1);
         newDirection.y = Mathf.Clamp(newDirection.y, -1, 1);

@@ -37,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(){
         foreach (var SpawnPosition in SpawnPositions)
         {
-            Instantiate(EnemyObject, SpawnPosition);
+            GameObject clone = Instantiate(EnemyObject, SpawnPosition);
+            clone.transform.parent = null;
         }
     }
 }
