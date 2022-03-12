@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: c48c7b9363eac3d40bd1df1d08b56d9f
+guid: ccadc715380b59543bb88c11a0564bba
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2612996242361260140
+    second: skelly_hurt_v002_0
+  - first:
+      213: 33054796757040823
+    second: skelly_hurt_v002_1
+  - first:
+      213: 7475383446758205070
+    second: skelly_hurt_v002_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +110,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: skelly_hurt_v002_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49760a603c5ccbbd0800000000000000
+      internalID: -2612996242361260140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelly_hurt_v002_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be73da992f657000800000000000000
+      internalID: 33054796757040823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelly_hurt_v002_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86abd773a5edb760800000000000000
+      internalID: 7475383446758205070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

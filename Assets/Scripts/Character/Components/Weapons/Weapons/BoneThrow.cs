@@ -16,7 +16,7 @@ public class BoneThrow : Weapon
 
         if (throwerHP.CurrentHealth > 1)
         {
-            throwerHP.Damage(_SelfDamage);
+            throwerHP.Damage(_SelfDamage, false);
             characterAnimator.SetTrigger("rangedAttack");
             SpawnProjectile();
         }

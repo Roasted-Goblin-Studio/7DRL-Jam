@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public virtual void Damage(float amount){
+    public virtual void Damage(float amount, bool playHurtAnim = true){
 
         if (_CurrentHealth <= 0) return;
 
@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
         }
         else
         {
+            if (playHurtAnim && _Animator) _Animator.SetTrigger("hurt");
             _CurrentHealth -= amount;
         }
     }
