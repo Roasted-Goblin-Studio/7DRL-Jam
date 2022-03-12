@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterType: 1
+  _CharacterHitbox: {fileID: 0}
 --- !u!114 &3987479419746471548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf85052a71e851e4892697d1376b1f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartingHealth: 0
+  _StartingHealth: 5
 --- !u!61 &3987479419746471551
 BoxCollider2D:
   m_ObjectHideFlags: 0

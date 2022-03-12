@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
-  m_Name: Book-1.Wander
+  m_Name: Snail-1.Wander
   m_EditorClassIdentifier: 
   AIActions:
-  - {fileID: 11400000, guid: 2a95df2514ea0bc448738f2df4e489d3, type: 2}
+  - {fileID: 11400000, guid: 83f3544dfc6e44840bc832f2b746455a, type: 2}
   AITransitions:
-  - Decision: {fileID: 11400000, guid: e0149617f5a6cdc44bf73f1dc2a32b43, type: 2}
-    TrueState: {fileID: 11400000, guid: 0c65aef0534eb2b48babf1607bc2c3e5, type: 2}
+  - Decision: {fileID: 11400000, guid: 7621451bdeec88b49a5b4c25b3136755, type: 2}
+    TrueState: {fileID: 11400000, guid: e3a9825864887f041bb722a636feb514, type: 2}
     FalseState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}

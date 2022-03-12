@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterType: 2
+  _CharacterHitbox: {fileID: 0}
 --- !u!114 &8230247294436917546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d227dde480aa5f47a77ea632ac613ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartingState: {fileID: 11400000, guid: 36bce78ccc005a24bb7a19bc513ff273, type: 2}
+  _StartingState: {fileID: 11400000, guid: 1084f491440823e419b7554309f00cd8, type: 2}
   _RemainInState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
   _DeathState: {fileID: 11400000, guid: 3a4601e3f353a9348bb537930b7de604, type: 2}
   _DetectArea: 6
