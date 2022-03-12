@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterType: 1
-  _CharacterHitbox: {fileID: 0}
+  _CharacterHitbox: {fileID: 3987479419191238377}
 --- !u!114 &3987479419746471548
 MonoBehaviour:
   m_ObjectHideFlags: 0
