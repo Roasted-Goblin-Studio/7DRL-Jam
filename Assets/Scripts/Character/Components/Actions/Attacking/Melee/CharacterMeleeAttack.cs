@@ -30,6 +30,7 @@ public class CharacterMeleeAttack : CharacterComponent
 
     protected override void HandlePlayerInput()
     {
+        if(!_Character.IsActionable) return;
         if (!_AttackPoint) return;
         if (Input.GetMouseButtonDown(_Character.CharacterInput.MouseSecondaryKeyCode)) Attack();
     }

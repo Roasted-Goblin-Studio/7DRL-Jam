@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy(){
+        if(_GlobalStateManager.GameIsPaused) return;
         if(_RandomizeEnemySpawnPoint){
             int RandomSelection = Random.Range(0, SpawnPositions.Count);
             if(RandomSelection == _RandomizeEnemeyLastSpawnIndex) RandomSelection++;
