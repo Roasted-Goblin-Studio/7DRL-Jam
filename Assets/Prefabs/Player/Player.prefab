@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject: []
+  _DebugMode: 0
   _MovementSmoothing: 0.05
   _MovementSpeed: 7.5
   _UseMovementFollow: 0
@@ -530,6 +530,10 @@ MonoBehaviour:
   _MovementStartupLagLength: 0
   _MovementStartupLagDecrease: 0
   _MovementStartupLag: 0
+  _ObstacleDetectionRange: 0.8
+  _LayerMasksThatStopsGameObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &3987479419746471490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f6b34ec5131364395240ef804b964b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _LockMouseMovement: 0
 --- !u!114 &3987479419746471489
 MonoBehaviour:
@@ -555,6 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f103dbbdc7451ad4ca1bd648b501c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _WeaponPosition: {fileID: 3987479419509748275}
   _PrimaryWeapon: {fileID: -1428519292108590744, guid: 74e97a232254b4446be0755c242b7a4b, type: 3}
 --- !u!114 &3987479419746471495
@@ -608,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3109a53c5af0b04686015601d83e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _AttackPoint: {fileID: 3987479419634213077}
   _AttackRange: 0.5
   _AttackCooldown: 1
