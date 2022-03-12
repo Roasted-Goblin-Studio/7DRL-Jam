@@ -28,6 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4985169415436124147}
+  - {fileID: 7391292735424639536}
   m_Father: {fileID: 4985169415192416532}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40,9 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985169415192416532}
-  - component: {fileID: 4296948036774992420}
   - component: {fileID: 7654559651842603281}
+  - component: {fileID: 4870857264390364831}
+  - component: {fileID: 3297760919961096751}
   - component: {fileID: 1554459236130630876}
+  - component: {fileID: 4296948036774992420}
+  - component: {fileID: 2912441304716656029}
   m_Layer: 11
   m_Name: Enemy2-Book
   m_TagString: Enemy
@@ -67,23 +71,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4296948036774992420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985169415192416531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject: []
-  _MovementSmoothing: 0.05
-  _MovementSpeed: 7.5
-  _UseMovementFollow: 0
-  _FacingRight: 1
 --- !u!50 &7654559651842603281
 Rigidbody2D:
   serializedVersion: 4
@@ -104,7 +91,40 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &4870857264390364831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415192416531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d227dde480aa5f47a77ea632ac613ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _StartingState: {fileID: 11400000, guid: c9451f69b121bf344afcbfcf524e22a4, type: 2}
+  _RemainInState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
+  _DeathState: {fileID: 11400000, guid: 2a36de5b6197e5342912e8efbab8dee6, type: 2}
+  _DetectArea: 3
+  _TargetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &3297760919961096751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415192416531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e17a450d4bb6774c863df0fd7c09846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterType: 2
+  _CharacterHitbox: {fileID: 4484177199300554219}
 --- !u!114 &1554459236130630876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +138,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _StartingHealth: 3
+--- !u!114 &4296948036774992420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415192416531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LayerMasksThatStopsGameObject: []
+  _MovementSmoothing: 0.05
+  _MovementSpeed: 7.5
+  _UseMovementFollow: 1
+  _FacingRight: 0
+  _MovementStartupLagLength: 2
+  _MovementStartupLagDecrease: 2
+  _MovementStartupLag: 1
+--- !u!114 &2912441304716656029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415192416531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3109a53c5af0b04686015601d83e133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AttackPoint: {fileID: 7391292735424639536}
+  _AttackRange: 0.6
+  _AttackCooldown: 0
+  _AttackStartup: 0
+  _AttackTime: 0
+  _AttackDamage: 1
+  _EnemyLayers:
+    serializedVersion: 2
+    m_Bits: 4096
+  _TargetTag: HitBox
 --- !u!1 &4985169415415307405
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985169415415307406}
+  - component: {fileID: 5487455191346678053}
+  - component: {fileID: 8809771642069896772}
   m_Layer: 11
   m_Name: Bite Sensor
   m_TagString: Untagged
@@ -142,12 +206,51 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4985169415415307405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.17, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4985169415733309114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5487455191346678053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415415307405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f504b3f9a81c09741a2bac359a05ca05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TargetForSensor: Player
+--- !u!61 &8809771642069896772
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985169415415307405}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.60503006, y: -0.00000011920929}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3788986, y: 2.6884525}
+  m_EdgeRadius: 0
 --- !u!1 &4985169415436124146
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,10 +260,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985169415436124147}
-  - component: {fileID: 4813317927024769886}
+  - component: {fileID: 4484177199300554219}
   m_Layer: 13
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,8 +282,8 @@ Transform:
   m_Father: {fileID: 4985169414730124288}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4813317927024769886
-CircleCollider2D:
+--- !u!70 &4484177199300554219
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -189,12 +292,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.027282715, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.0911503
+  m_Offset: {x: -0.0042939186, y: 0.017177224}
+  m_Size: {x: 1.1441469, y: 1.7453506}
+  m_Direction: 0
 --- !u!1 &4985169415733309113
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,3 +431,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &5540327354342864797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7391292735424639536}
+  m_Layer: 11
+  m_Name: Bite Hitbox Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7391292735424639536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540327354342864797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4985169414730124288}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
