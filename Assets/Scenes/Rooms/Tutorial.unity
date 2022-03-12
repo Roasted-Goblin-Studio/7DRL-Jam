@@ -30569,6 +30569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1929051563}
     m_Modifications:
+    - target: {fileID: 2762163236383157193, guid: 05f5fa0c70d8dcd4f846cfc73dfc8220, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8196170370907488268, guid: 05f5fa0c70d8dcd4f846cfc73dfc8220, type: 3}
       propertyPath: m_Name
       value: BonePile
@@ -30579,11 +30583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8196170370907488271, guid: 05f5fa0c70d8dcd4f846cfc73dfc8220, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.323165
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 8196170370907488271, guid: 05f5fa0c70d8dcd4f846cfc73dfc8220, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5493846
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 8196170370907488271, guid: 05f5fa0c70d8dcd4f846cfc73dfc8220, type: 3}
       propertyPath: m_LocalPosition.z
