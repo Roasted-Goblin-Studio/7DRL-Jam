@@ -90,7 +90,7 @@ public class Projectile : MonoBehaviour
     {
         var enemyHP = other.GetComponentInParent<Health>();
 
-        if (!enemyHP || other.tag != "HitBox") return;
+        if (!enemyHP) return;
 
         enemyHP.Damage(_ProjectileDamage);
     }
