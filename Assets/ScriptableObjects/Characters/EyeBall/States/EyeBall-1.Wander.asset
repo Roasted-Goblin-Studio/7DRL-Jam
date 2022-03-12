@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
+  m_Name: EyeBall-1.Wander
+  m_EditorClassIdentifier: 
+  AIActions:
+  - {fileID: 11400000, guid: aec5455f7c130ef44ba35137b8d71c04, type: 2}
+  AITransitions:
+  - Decision: {fileID: 11400000, guid: c87e6bd4ea755dd47aeb9d02c479e34a, type: 2}
+    TrueState: {fileID: 11400000, guid: b267ab8eb2a0ec340980aa225e4cfa86, type: 2}
+    FalseState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}

@@ -111,6 +111,7 @@ public class AIAttackAction : AIAction
 
     protected virtual void AttackAction(StateController controller){
         if(!_AttackStageStarted){
+            controller.CharacterMovement.StopAllMovement();
             _AttackStageStarted = true;
             Attack(controller);
         }

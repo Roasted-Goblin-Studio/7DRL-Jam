@@ -15,6 +15,8 @@ public class StateController : MonoBehaviour
     [SerializeField] private float _DetectArea = 3f;
     [SerializeField] private LayerMask _TargetMask;
 
+    [SerializeField] private bool _FollowPlayerMovement;
+
     private CharacterMovement _CharacterMovement;
     private CharacterMeleeAttack _CharacterMeleeAttack;
     private CharacterAttack _CharacterAttack;
@@ -24,6 +26,7 @@ public class StateController : MonoBehaviour
     private Transform _Target;
     private Collider2D _TargetCollider;
     private GameObject _GameObject;
+    private GameObject _TargetGameObject;
 
     private bool _TargetSet = false;
     private bool _IntroDone = false;
@@ -37,6 +40,7 @@ public class StateController : MonoBehaviour
     public AIState RemainInState { get => _RemainInState; set => _RemainInState = value; }
 
     public Transform Target { get => _Target; set => _Target = value; }
+    public GameObject TagetGameObject { get => _TargetGameObject; set => _TargetGameObject = value; }
     public GameObject GameObject {get => _GameObject; set => _GameObject = value;}
     
     public bool TargetSet { get => _TargetSet; set => _TargetSet = value; }
@@ -45,7 +49,12 @@ public class StateController : MonoBehaviour
 
     // Sensors
     private MeleeSensor _MeleeSensor;
+    private ExplodeSensor _ExplodeSensor;
+    private ExplodeRangeSensor _ExplodeRangeSensor;
+    
     public MeleeSensor MeleeSensor { get => _MeleeSensor; set => _MeleeSensor = value; }
+    public ExplodeRangeSensor ExplodeRangeSensor { get => _ExplodeRangeSensor; set => _ExplodeRangeSensor = value; }
+    public ExplodeSensor ExplodeSensor { get => _ExplodeSensor; set => _ExplodeSensor = value; }
 
     private void Awake()
     {
@@ -61,6 +70,9 @@ public class StateController : MonoBehaviour
 
         // Sensors
         _MeleeSensor = GetComponentInChildren<MeleeSensor>();
+        _ExplodeSensor = GetComponentInChildren<ExplodeSensor>();
+        _ExplodeRangeSensor = GetComponentInChildren<ExplodeRangeSensor>();
+
 
         // Lower priority
         _GameObject = gameObject;
@@ -70,7 +82,10 @@ public class StateController : MonoBehaviour
     private void Update()
     {
         if(!HandleStates()) return;
-        if (Actionable) _CurrentMacroState.EvaluateState(this);
+        if (Actionable) {
+            _CurrentMacroState.EvaluateState(this);
+            if(_FollowPlayerMovement) FollowPlayerMovement();
+        }
     }
 
     private void FixedUpdate() {
@@ -80,7 +95,6 @@ public class StateController : MonoBehaviour
     private bool HandleStates(){
         if(_CurrentMacroState == null) return false;
         // Handle Current Mirco Action
-        
         return true;
     }
 
@@ -96,5 +110,11 @@ public class StateController : MonoBehaviour
         if (_TargetCollider == null) return;
         Target = _TargetCollider.transform;
         TargetSet = true;
+    }
+
+    private void FollowPlayerMovement(){
+        if(Target == null) return;
+        if((Target.transform.position.x - transform.position.x) > 0 && !CharacterMovement.FacingRight) CharacterMovement.Flip();
+        else if((Target.transform.position.x - transform.position.x) < 0 && CharacterMovement.FacingRight) CharacterMovement.Flip();
     }
 }

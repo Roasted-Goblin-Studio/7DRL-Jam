@@ -81,4 +81,16 @@ public class Weapon : MonoBehaviour
         // Activate weapon - Initiate whatever the weapons attack is. Should spawn projectile, not control when the weapon shoots. 
     }
 
+    protected virtual void UseWeaponWithTarget(Transform targetPosition)
+    {
+        // INHERITANCE REMINDER - LOGIC GOES HERE
+        // Activate weapon - Initiate whatever the weapons attack is. Should spawn projectile, not control when the weapon shoots. 
+        
+    }
+
+    public virtual void AIInitiateUseWeapon(Transform targetPosition)
+    {
+        UseWeaponWithTarget(targetPosition);
+    }
+
 }
