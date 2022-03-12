@@ -14,6 +14,9 @@ public class EyeBallRangedWeapon : Weapon
 
     private GameObject SpawnProjectile(Transform targetPosition){
 
+        var characterAnimator = _WeaponOwner.GetComponentInChildren<Animator>();
+        if (characterAnimator) characterAnimator.SetTrigger("rangedAttack");
+
         GameObject pooledProjectile = _ObjectPooler.GetGameObjectFromPool();
 
         pooledProjectile.transform.position = _ProjectileSpawnPosition.position;
