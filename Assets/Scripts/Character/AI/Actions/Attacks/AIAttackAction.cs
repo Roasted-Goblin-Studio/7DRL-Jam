@@ -58,7 +58,7 @@ public class AIAttackAction : AIAction
             // Triggers tell
             // Debug.Log("Tell Stage Active");
 
-            TellAction();
+            TellAction(controller);
 
             if(Time.time > _AttackTellTimeWhenDone){
                 _AttackStageTell = false;
@@ -83,7 +83,7 @@ public class AIAttackAction : AIAction
         if(_AttackIsActive && _AttackStageEnd){
             // Debug.Log("End Stage Active");
 
-            EndAction();
+            EndAction(controller);
 
             if(Time.time > _AttackEndTimeWhenDone){
                 _AttackStageEnd = false;
@@ -102,9 +102,10 @@ public class AIAttackAction : AIAction
         }
     }
 
-    protected virtual void TellAction(){
+    protected virtual void TellAction(StateController controller){
         if(!_TellStageStarted){
             _TellStageStarted = true;
+            if(_StopOnAttackStart) controller.CharacterMovement.StopAllMovement();
             // Debug.Log("Tell Action");
         }
     }
@@ -117,7 +118,8 @@ public class AIAttackAction : AIAction
         }
     }
 
-    protected virtual void EndAction(){
+    protected virtual void EndAction(StateController controller){
+        controller.CharacterMovement.StopAllMovement();
         if(!_EndStageStarted){
             _EndStageStarted = true;
             // Debug.Log("End Action");

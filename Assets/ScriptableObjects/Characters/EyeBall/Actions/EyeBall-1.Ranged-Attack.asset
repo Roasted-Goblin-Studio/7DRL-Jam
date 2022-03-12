@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AttackName: Blood Shotgun
   _StopOnAttackStart: 1
-  _TimeOfTell: 2
-  _TimeOfAttack: 2
-  _TimeOfEnd: 2
-  _TimeOfCooldown: 3
+  _TimeOfTell: 0.75
+  _TimeOfAttack: 1
+  _TimeOfEnd: 0.75
+  _TimeOfCooldown: 0

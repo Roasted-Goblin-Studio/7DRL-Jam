@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterComponent : MonoBehaviour
 {
+    [SerializeField] private bool _DebugMode;
+
     protected Character _Character;
     protected Animator _Animator;
     protected CharacterAchievements _CharacterAchievements;
@@ -13,7 +15,8 @@ public class CharacterComponent : MonoBehaviour
     public CharacterAchievements CharacterAchievements { get => _CharacterAchievements; set => _CharacterAchievements = value; }
     public CharacterInput CharacterInput { get => _CharacterInput; set => _CharacterInput = value; }
     public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
-    
+    public bool DebugMode { get => _DebugMode; set => _DebugMode = value; }
+
 
     protected virtual void Awake(){
         _Character = GetComponent<Character>();

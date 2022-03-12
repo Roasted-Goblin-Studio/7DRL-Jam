@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928441275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: -1.34, z: 0}
+  m_LocalPosition: {x: 1.43, y: -1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1658841574}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaabcb88b59c49bdc41308c188943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LayerMasksThatStopsGameObject: []
+  _DebugMode: 0
   _MovementSmoothing: 0.05
   _MovementSpeed: 7.5
   _UseMovementFollow: 1
@@ -205,6 +205,10 @@ MonoBehaviour:
   _MovementStartupLagLength: 0
   _MovementStartupLagDecrease: 0
   _MovementStartupLag: 0
+  _ObstacleDetectionRange: 0.8
+  _LayerMasksThatStopsGameObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &57325707377020901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f103dbbdc7451ad4ca1bd648b501c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugMode: 0
   _WeaponPosition: {fileID: 505581648}
   _PrimaryWeapon: {fileID: 3801446151934620231, guid: c3ee79befab83a84d8872060b53e563b, type: 3}
 --- !u!114 &3138203408325665445
@@ -284,7 +289,7 @@ MonoBehaviour:
   - {fileID: 1928441276}
   _EnemyName: Small Eyes
   _TimeBetweenSpawns: 10
-  _SpawnEnemies: 1
+  _SpawnEnemies: 0
 --- !u!1 &5798318783972523956
 GameObject:
   m_ObjectHideFlags: 0
