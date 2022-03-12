@@ -7,6 +7,8 @@ public class FollowAction : AIAction
 {
     [SerializeField] [Range(0, 10)] private float _MinDistanceToFollowHorizontally = 0;
     [SerializeField] [Range(0, 10)] private float _MinDistanceToFollowVertically = 0;
+    [SerializeField] private bool _BackUpOnApproach = false;
+    private Transform _LastKnownLocation;
 
     public override void Act(StateController controller)
     {

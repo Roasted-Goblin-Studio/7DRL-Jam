@@ -15,6 +15,8 @@ public class StateController : MonoBehaviour
     [SerializeField] private float _DetectArea = 3f;
     [SerializeField] private LayerMask _TargetMask;
 
+    [SerializeField] private bool _FollowPlayerMovement;
+
     private CharacterMovement _CharacterMovement;
     private CharacterMeleeAttack _CharacterMeleeAttack;
     private CharacterAttack _CharacterAttack;
@@ -70,7 +72,10 @@ public class StateController : MonoBehaviour
     private void Update()
     {
         if(!HandleStates()) return;
-        if (Actionable) _CurrentMacroState.EvaluateState(this);
+        if (Actionable) {
+            _CurrentMacroState.EvaluateState(this);
+            if(_FollowPlayerMovement) FollowPlayerMovement();
+        }
     }
 
     private void FixedUpdate() {
@@ -80,7 +85,6 @@ public class StateController : MonoBehaviour
     private bool HandleStates(){
         if(_CurrentMacroState == null) return false;
         // Handle Current Mirco Action
-        
         return true;
     }
 
@@ -96,5 +100,11 @@ public class StateController : MonoBehaviour
         if (_TargetCollider == null) return;
         Target = _TargetCollider.transform;
         TargetSet = true;
+    }
+
+    private void FollowPlayerMovement(){
+        if(Target == null) return;
+        if((Target.transform.position.x - transform.position.x) > 0 && !CharacterMovement.FacingRight) CharacterMovement.Flip();
+        else if((Target.transform.position.x - transform.position.x) < 0 && CharacterMovement.FacingRight) CharacterMovement.Flip();
     }
 }
