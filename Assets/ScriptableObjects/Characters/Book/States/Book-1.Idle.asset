@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
   m_Name: Book-1.Idle
   m_EditorClassIdentifier: 
-  AIActions: []
+  AIActions:
+  - {fileID: 11400000, guid: c7df316b033d70b4ea3f6b677dcc4268, type: 2}
   AITransitions:
-  - Decision: {fileID: 0}
-    TrueState: {fileID: 11400000, guid: c9451f69b121bf344afcbfcf524e22a4, type: 2}
+  - Decision: {fileID: 11400000, guid: e0149617f5a6cdc44bf73f1dc2a32b43, type: 2}
+    TrueState: {fileID: 11400000, guid: 0c65aef0534eb2b48babf1607bc2c3e5, type: 2}
     FalseState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}

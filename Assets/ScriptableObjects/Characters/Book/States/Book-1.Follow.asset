@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893169f1cd80f28448adcac47793e3a7, type: 3}
   m_Name: Book-1.Follow
   m_EditorClassIdentifier: 
-  AIActions: []
+  AIActions:
+  - {fileID: 11400000, guid: cea95ed4a4fdcc044b3800bfda74d7d3, type: 2}
   AITransitions:
-  - Decision: {fileID: 11400000, guid: e0149617f5a6cdc44bf73f1dc2a32b43, type: 2}
-    TrueState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
-    FalseState: {fileID: 11400000, guid: c9451f69b121bf344afcbfcf524e22a4, type: 2}
-  - Decision: {fileID: 11400000, guid: e0149617f5a6cdc44bf73f1dc2a32b43, type: 2}
-    TrueState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
-    FalseState: {fileID: 11400000, guid: c9451f69b121bf344afcbfcf524e22a4, type: 2}
+  - Decision: {fileID: 11400000, guid: fa4e52fceae812a42b3329217547f311, type: 2}
+    TrueState: {fileID: 11400000, guid: da67d0fe0d22360428f3994fc83dd031, type: 2}
+    FalseState: {fileID: 11400000, guid: 12b35af0415d2b04a964e05e959978e2, type: 2}
