@@ -9,7 +9,7 @@ public class MenuPanel : MonoBehaviour
     public void EnablePanel(bool initialSet) 
     {
         gameObject.SetActive(true);
-        if (gameObject.active) {
+        if (gameObject.activeSelf) {
             components = GetComponentsInChildren<IPanelComponent>();
             foreach (IPanelComponent component in components) {
                 component.EnableComponent(initialSet);
@@ -19,7 +19,7 @@ public class MenuPanel : MonoBehaviour
 
     public void DisablePanel(bool initialSet) 
     {
-        if (gameObject.active) {
+        if (gameObject.activeSelf) {
             components = GetComponentsInChildren<IPanelComponent>();
             foreach (IPanelComponent component in components) 
             {
