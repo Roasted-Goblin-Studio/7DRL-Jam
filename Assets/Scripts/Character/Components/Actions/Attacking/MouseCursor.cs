@@ -6,6 +6,8 @@ public class MouseCursor : CharacterComponent
 {
     private Vector3 _MousePosition;
     private GameObject _Cursor;
+    private CharacterHealth _Health;
+    private Animator _Animator;
     public bool _LockMouseMovement;
 
     public Vector3 MousePosition { get => _MousePosition; set => _MousePosition = value; }
@@ -15,6 +17,14 @@ public class MouseCursor : CharacterComponent
     {
         base.Start();
         _Cursor = GameObject.Find("Cursor");
+        _Health = GetComponent<CharacterHealth>();
+        _Animator = _Cursor.GetComponent<Animator>();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        _Animator.SetInteger("Health", (int) _Health.CurrentHealth);
     }
 
     override protected void HandlePhysicsComponentFunction(){
