@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6469381426936292666
+--- !u!1 &3351863996465315338
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6469381426936292612}
-  - component: {fileID: 6469381426936292667}
+  - component: {fileID: 3351863996465315339}
+  - component: {fileID: 3351863996465315332}
   m_Layer: 0
-  m_Name: EyeBall-1.Spawner-Simple 1
+  m_Name: EyeBall-1.Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6469381426936292612
+--- !u!4 &3351863996465315339
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469381426936292666}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1467612, y: 1.513988, z: -21.146757}
+  m_GameObject: {fileID: 3351863996465315338}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.68107474, y: 6.9199176, z: -0.7759649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6469381427071005864}
+  - {fileID: 4430144532562416648}
+  - {fileID: 4430144531538851428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6469381426936292667
+--- !u!114 &3351863996465315332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469381426936292666}
+  m_GameObject: {fileID: 3351863996465315338}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd006a0628c6e3749a4cb78e14a8bf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyObject: {fileID: 7527466947404297557, guid: c9b64c123d2e18044bd7d2feaf8fb475, type: 3}
+  EnemyObject: {fileID: 5798318783793672746, guid: f815ab4fda7e7ce48be24908adbc26d7, type: 3}
   SpawnPositions:
-  - {fileID: 6469381427003640876}
-  _EnemyName: Snail-1 Basic Spawner
-  _SpawnEnemiesEnabled: 0
+  - {fileID: 4430144532562416648}
+  - {fileID: 4430144531538851428}
+  _EnemyName: SeeBert
+  _SpawnEnemiesEnabled: 1
   _MaxEnemiesSpawned: 5
-  _TimeBetweenSpawns: 2
-  _RandomizeEnemySpawnPoint: 0
---- !u!1 &6469381427003640867
+  _TimeBetweenSpawns: 6
+  _RandomizeEnemySpawnPoint: 1
+--- !u!1 &4430144531538851429
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,29 +62,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6469381427003640876}
+  - component: {fileID: 4430144531538851428}
   m_Layer: 0
-  m_Name: SpawnPoint-1
+  m_Name: EyeBall-1.Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6469381427003640876
+--- !u!4 &4430144531538851428
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469381427003640867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1, y: 1.09, z: 0}
+  m_GameObject: {fileID: 4430144531538851429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.94, y: -0.13999987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6469381427071005864}
-  m_RootOrder: 0
+  m_Father: {fileID: 3351863996465315339}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6469381427071005871
+--- !u!1 &4430144532562416649
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,26 +92,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6469381427071005864}
+  - component: {fileID: 4430144532562416648}
   m_Layer: 0
-  m_Name: SpawnPoints
+  m_Name: EyeBall-1.Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6469381427071005864
+--- !u!4 &4430144532562416648
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469381427071005871}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4430144532562416649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.37, y: 4.3400006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6469381427003640876}
-  m_Father: {fileID: 6469381426936292612}
+  m_Children: []
+  m_Father: {fileID: 3351863996465315339}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

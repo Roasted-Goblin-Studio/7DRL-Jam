@@ -9,6 +9,7 @@ TagManager:
   - Non Hitable
   - Enemy
   - HitBox
+  - ProjectileWalls
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - 
   - Walls
   - NotHittable
-  - 
+  - ProjectileWalls
   - 
   - 
   - 

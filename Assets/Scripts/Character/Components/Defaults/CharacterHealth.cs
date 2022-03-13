@@ -57,6 +57,9 @@ public class CharacterHealth : Health
         base.Die();
         onDeath?.Invoke();
 
+        // If player, kill and turn off control booleans
+        if(_Character.CharacterType == Character.CharacterTypes.Player) _Character.Lock();
+
         _CurrentHealth = 0;
         if (_Character) _Character.IsAlive = false;
         if (_Animator) _Animator.SetTrigger("die");
