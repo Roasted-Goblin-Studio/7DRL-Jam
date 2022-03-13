@@ -33,11 +33,10 @@ public class GlobalStateManager : BaseStateController
     protected override void HandleStartTasks()
     {
         base.HandleStartTasks();
-        GameObject CutSceneManagerGameObject = GameObject.Find("CutScene Manager");
-        GameObject SpawnManagerGameObject = GameObject.Find("SpawnManager");
+        
         _Player = GameObject.Find("Player");
-        if(CutSceneManagerGameObject != null) CutSceneManager = CutSceneManagerGameObject.GetComponent<CutSceneManager>();
-        if(SpawnManagerGameObject != null) SpawnManager = SpawnManagerGameObject.GetComponent<SpawnManager>();  
+        LoadCutSceneManager();
+        LoadSpawnerManager();
     }
 
     protected override void HandleLowPriorityTasks(){
@@ -46,10 +45,20 @@ public class GlobalStateManager : BaseStateController
 
     public void LoadNextState(){
         GameObject playerSpawnPointGameObject = GameObject.Find("Player SpawnPoint");
-        RoomHasCutScene = false;
-        
         if(playerSpawnPointGameObject != null && _Player != null) _Player.transform.position = playerSpawnPointGameObject.transform.position; 
-
+        
+        RoomHasCutScene = false;
+        LoadCutSceneManager();
+        LoadSpawnerManager();
     }
-    
+
+    private void LoadCutSceneManager(){
+        GameObject CutSceneManagerGameObject = GameObject.Find("CutScene Manager");
+        if(CutSceneManagerGameObject != null) CutSceneManager = CutSceneManagerGameObject.GetComponent<CutSceneManager>();
+    }
+
+    private void LoadSpawnerManager(){
+        GameObject SpawnManagerGameObject = GameObject.Find("SpawnManager");
+        if(SpawnManagerGameObject != null) SpawnManager = SpawnManagerGameObject.GetComponent<SpawnManager>();
+    }
 }

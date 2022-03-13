@@ -54,7 +54,8 @@ public class Character : MonoBehaviour
     }
 
     protected virtual void Start() {
-        _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
+        GameObject GlobalStateManagerGameObject = GameObject.Find("GlobalStateManager");
+        if(GlobalStateManagerGameObject != null) _GlobalStateManager = GlobalStateManagerGameObject.GetComponent<GlobalStateManager>();
         _LegColliderManager = GetComponentInChildren<LegColliderManager>();
     }
 
@@ -97,6 +98,7 @@ public class Character : MonoBehaviour
     }
 
     private void HandlePauseInput(){
+        if(_GlobalStateManager == null) return;
         if(_GlobalStateManager.GameIsPaused && !_GameIsPaused){
             PauseGame();
             _GameIsPaused = true;
