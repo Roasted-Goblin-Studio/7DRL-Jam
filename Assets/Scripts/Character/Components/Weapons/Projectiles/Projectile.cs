@@ -75,17 +75,13 @@ public class Projectile : MonoBehaviour
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
-        //Debug.Log(other.tag);
-        //Debug.Log("Cehck?1 ");
         if (_FriendlyLayers == (_FriendlyLayers | (1 << other.gameObject.layer))) return;
-        //Debug.Log("Cehck2");
+
         if (_EnemyLayers == (_EnemyLayers | (1 << other.gameObject.layer)))
         {
             // allows overrides
             DoEnemyCollision(other);
         }
-
-        // Debug.Log("Cehck?3");
 
         _ReturnObjectToPool.DestroyObject();
     }
