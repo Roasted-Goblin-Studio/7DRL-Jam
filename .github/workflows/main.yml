@@ -30,7 +30,7 @@ jobs:
           - WebGL # WebGL.
         unityVersion:
 
-          - 2020.3.16f1
+          - 2020.3.30f1
           
     steps:
       - name: Inject slug/short variables

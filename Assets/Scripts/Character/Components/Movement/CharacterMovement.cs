@@ -61,83 +61,84 @@ public class CharacterMovement : CharacterComponent
 
 	public void MoveCharacter()
 	{
-		if (_Character.CanMove == false) return;
+		if (_Character.CanMove){
 		// Move the character by finding the target velocity
 
-		float MovementSpeed = _MovementSpeed;
-		if(_MovementStartupLag){
-			_MovementStartupLagEndTime = Time.time + _MovementStartupLagLength;
-			_MovementStartupLag = false;
-		}
-
-		if(Time.time < _MovementStartupLagEndTime){
-			MovementSpeed /= _MovementStartupLagDecrease;
-		}
-		
-		
-		Vector3 targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
-
-		// Check for Wall obstacles 
-		if(DebugMode) Debug.DrawRay(_Character.CharacterHitbox.bounds.center, Vector3.ClampMagnitude(targetVelocity, _ObstacleDetectionRange), Color.green, 0, true);
-		
-		foreach (LayerMask layer in _LayerMasksThatStopsGameObject){ 
-			RaycastHit2D layerHit = Physics2D.Raycast(_Character.CharacterHitbox.bounds.center, targetVelocity, _ObstacleDetectionRange, layer); 
-			// Need to add the actual logic here but I'll come back to this.
-			if(layerHit){
-				_Horizontal = 0;
-				_Vertical = 0;
+			float MovementSpeed = _MovementSpeed;
+			if(_MovementStartupLag){
+				_MovementStartupLagEndTime = Time.time + _MovementStartupLagLength;
+				_MovementStartupLag = false;
 			}
-		}
 
-		// Apply force
-		targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
-		// And then smoothing it out and applying it to the character
-		_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
-		
-		if (_Character.CharacterType == Character.CharacterTypes.Player)
-        {
-            if (Horizontal > 0)
-            {
-                _Animator.SetFloat("velocity", 1);
-                _Animator.SetBool("isMoving", FacingRight);
-                _Animator.SetBool("isMovingReverse", !FacingRight);
-            }
-            else if (Horizontal < 0)
-            {
-                _Animator.SetFloat("velocity", 1);
-                _Animator.SetBool("isMoving", !FacingRight);
-                _Animator.SetBool("isMovingReverse", FacingRight);
-            }
-            else if (Vertical != 0)
-            {
-                _Animator.SetFloat("velocity", 1);
-                _Animator.SetBool("isMoving", true);
-                _Animator.SetBool("isMovingReverse", false);
-            }
-            else
-            {
-                _Animator.SetFloat("velocity", 0);
-                _Animator.SetBool("isMoving", false);
-                _Animator.SetBool("isMovingReverse", false);
-            }
-        }
-		else
-        {
-            _Animator.SetBool("isMoving", Horizontal != 0 || Vertical != 0);
-        }
-
-		if(UseMovementFollow){
-			// If the input is moving the player right and the player is facing left...
-			if (_Horizontal > 0 && !_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
+			if(Time.time < _MovementStartupLagEndTime){
+				MovementSpeed /= _MovementStartupLagDecrease;
 			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (_Horizontal < 0 && _FacingRight)
+			
+			Vector3 targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
+
+			// Check for Wall obstacles 
+			if(DebugMode) Debug.DrawRay(_Character.CharacterHitbox.bounds.center, Vector3.ClampMagnitude(targetVelocity, _ObstacleDetectionRange), Color.green, 0, true);
+			
+			foreach (LayerMask layer in _LayerMasksThatStopsGameObject){ 
+				if(_Character.CharacterHitbox == null) break;
+				RaycastHit2D layerHit = Physics2D.Raycast(_Character.CharacterHitbox.bounds.center, targetVelocity, _ObstacleDetectionRange, layer); 
+				// Need to add the actual logic here but I'll come back to this.
+				if(layerHit){
+					_Horizontal = 0;
+					_Vertical = 0;
+				}
+			}
+
+			// Apply force
+			targetVelocity = new Vector2(_Horizontal * MovementSpeed, _Vertical * MovementSpeed);
+			// And then smoothing it out and applying it to the character
+			_Character.RigidBody2D.velocity = Vector3.SmoothDamp(_Character.RigidBody2D.velocity, targetVelocity, ref _Velocity, _MovementSmoothing);
+			
+			if (_Character.CharacterType == Character.CharacterTypes.Player)
 			{
-				// ... flip the player.
-				Flip();
+				if (Horizontal > 0)
+				{
+					_Animator.SetFloat("velocity", 1);
+					_Animator.SetBool("isMoving", FacingRight);
+					_Animator.SetBool("isMovingReverse", !FacingRight);
+				}
+				else if (Horizontal < 0)
+				{
+					_Animator.SetFloat("velocity", 1);
+					_Animator.SetBool("isMoving", !FacingRight);
+					_Animator.SetBool("isMovingReverse", FacingRight);
+				}
+				else if (Vertical != 0)
+				{
+					_Animator.SetFloat("velocity", 1);
+					_Animator.SetBool("isMoving", true);
+					_Animator.SetBool("isMovingReverse", false);
+				}
+				else
+				{
+					_Animator.SetFloat("velocity", 0);
+					_Animator.SetBool("isMoving", false);
+					_Animator.SetBool("isMovingReverse", false);
+				}
+			}
+			else
+			{
+				_Animator.SetBool("isMoving", Horizontal != 0 || Vertical != 0);
+			}
+
+			if(UseMovementFollow){
+				// If the input is moving the player right and the player is facing left...
+				if (_Horizontal > 0 && !_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
+				// Otherwise if the input is moving the player left and the player is facing right...
+				else if (_Horizontal < 0 && _FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
 			}
 		}
 	}
@@ -166,16 +167,13 @@ public class CharacterMovement : CharacterComponent
 		Vertical = 0;
 	}
 
-	// private void EvaluateObstacle()
-    // {
-    //     // Raycasting if obstacle collision in movement
-    //     RaycastHit2D hit = Physics2D.BoxCast(_Character.CharacterHitbox.bounds.center, _ObstacleBoxCheckSize, 0f, _WanderDirection, _WanderDirection.magnitude, _ObstacleMask);
-    //     Debug.DrawRay(_Character.CharacterHitbox.bounds.center, _WanderDirection);
-    //     // If there is, pick a new direction
-    //     if (hit)
-    //     {
-    //         _WanderDirection.x = Random.Range(-_WanderArea, _WanderArea);
-    //         _WanderCheckTime = Time.time;
-    //     }
-    // }
+	public void ForceStopAllMovement(){
+		if(_Animator != null){
+			_Animator.SetFloat("velocity", 0);
+			_Animator.SetBool("isMoving", false);
+			_Animator.SetBool("isMovingReverse", false);
+		}
+
+		if(_Character.RigidBody2D != null) _Character.RigidBody2D.velocity = new Vector3(0, 0, 0);
+	}
 }

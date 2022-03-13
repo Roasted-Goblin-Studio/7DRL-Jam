@@ -18,6 +18,10 @@ public class MouseCursor : CharacterComponent
     }
 
     override protected void HandlePhysicsComponentFunction(){
+        if(!_Character.IsActionable) {
+            _Cursor.transform.position = new Vector3(-100,-100, 0);
+            return;
+        }
         if(!LockMouseMovement) SetCursorToFollowMouse();
         CursorIsToLeftOfPlayer();
     }
