@@ -17,14 +17,20 @@ public class Health : MonoBehaviour
 
     // Public
     public float CurrentHealth => _CurrentHealth; //READONLY
+    public float MaxHealth => _MaxHealth; //READONLY
 
-    // Start is called before the first frame update
-    protected virtual void Start()
-    {  
+    void Awake()
+    {
         _Animator = GetComponentInChildren<Animator>();
         _MaxHealth = _StartingHealth;
         _CurrentHealth = _MaxHealth;
         _OriginalMaxHealth = _MaxHealth;
+    }
+
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {  
+        
     }
 
     // Health indicator controller
