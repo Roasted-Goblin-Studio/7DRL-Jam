@@ -22,9 +22,4 @@ public class LevelMusicManager : MonoBehaviour
     {
         Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-
-    void OnDestroy()
-    {
-        Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
 }

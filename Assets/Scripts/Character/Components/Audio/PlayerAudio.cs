@@ -63,6 +63,7 @@ public class PlayerAudio : MonoBehaviour
     {
         Death.start();
         end.StopMusic();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Music/Death_Sting");
     }
 
     void Scream()
