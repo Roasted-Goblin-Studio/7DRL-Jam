@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3987479418555081473}
   - component: {fileID: 3987479418555081472}
   - component: {fileID: 4286012913079624773}
+  - component: {fileID: 7480489933306227186}
   m_Layer: 10
   m_Name: Sprites
   m_TagString: Non Hitable
@@ -115,6 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14dfe21913ccca41a02ad55fb85a5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7480489933306227186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3987479418555081478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e334ab8bd31d7408d67fa49e1849ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicEvent: event:/Music/Level_Music
 --- !u!1 &3987479418696691377
 GameObject:
   m_ObjectHideFlags: 0
