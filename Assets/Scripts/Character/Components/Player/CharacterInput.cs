@@ -32,4 +32,8 @@ public class CharacterInput : MonoBehaviour
     // Interact with Object
     [SerializeField] private KeyCode _InteractKeyCode = KeyCode.E;
     public KeyCode InteractKeyCode  {get => _InteractKeyCode; set => _InteractKeyCode = value;}
+
+    // Quit
+    [SerializeField] private KeyCode _QuitKeyCode = KeyCode.Escape;
+    public KeyCode QuitKeyCode  {get => _QuitKeyCode; set => _QuitKeyCode = value;}
 }

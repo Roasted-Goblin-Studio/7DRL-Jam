@@ -62,6 +62,7 @@ public class Character : MonoBehaviour
     private void Update() {
         HandlePauseInput();
         if(_GameIsPaused) GameIsPaused();
+        HandleExitGame();
     }
 
     //~~ FLAGS ~~\\
@@ -133,5 +134,9 @@ public class Character : MonoBehaviour
 
     private void GameIsPaused(){
         _CharacterMovement.ForceStopAllMovement();
+    }
+
+    private void HandleExitGame(){
+        if (Input.GetKey(_CharacterInput.QuitKeyCode)) Debug.Log("Check");//Application.Quit();
     }
 }

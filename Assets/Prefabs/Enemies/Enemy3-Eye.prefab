@@ -257,6 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 2
   _CharacterHitbox: {fileID: 6311076047010142311}
+  _IsActionable: 1
+  _CanMove: 1
 --- !u!114 &505566498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +291,7 @@ MonoBehaviour:
   - {fileID: 555817063}
   - {fileID: 1928441276}
   _EnemyName: Small Eyes
-  _SpawnEnemiesEnabled: 0
+  _SpawnEnemiesEnabled: 1
   _MaxEnemiesSpawned: 0
   _TimeBetweenSpawns: 10
   _RandomizeEnemySpawnPoint: 0

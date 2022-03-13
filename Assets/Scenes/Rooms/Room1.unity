@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: _SpawnEnemiesEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7555887660025938812, guid: e724ca3b523b4874eab15e9a9189fed6, type: 3}
+      propertyPath: _RandomizeEnemySpawnPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7555887660724811125, guid: e724ca3b523b4874eab15e9a9189fed6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.99
