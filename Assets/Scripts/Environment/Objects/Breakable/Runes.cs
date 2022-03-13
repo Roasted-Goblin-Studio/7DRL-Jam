@@ -25,6 +25,7 @@ public class Runes : MonoBehaviour
     private void BreakRune()
     {
         _IsBroken = true;
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Environment/Rune_Pickup", this.gameObject);
         _MagicSeal.DamageSeal();
         Destroy(_Rune);
     }
