@@ -58,13 +58,14 @@ public class EnemySpawner : MonoBehaviour
             clone.transform.parent = null;   
 
             _RandomizeEnemeyLastSpawnIndex = RandomSelection;  
+            _NumberOfEnemiesSpawned+=1;
         }else{
             foreach (var SpawnPosition in SpawnPositions)
             {
                 GameObject clone = Instantiate(EnemyObject, SpawnPosition);
                 clone.transform.parent = null;
+                _NumberOfEnemiesSpawned+=1;
             }
         }
-        _NumberOfEnemiesSpawned+=1;
     }
 }

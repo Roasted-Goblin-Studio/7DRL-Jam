@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872888720}
   - component: {fileID: 872888721}
+  - component: {fileID: 1144457238}
   m_Layer: 17
   m_Name: Legs
   m_TagString: Untagged
@@ -57,6 +58,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8125234, y: 0.4257846}
   m_EdgeRadius: 0
+--- !u!114 &1144457238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872888719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedbd96e3767648489042d744e04650f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1117973149
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 2
   _CharacterHitbox: {fileID: 2089332587}
+  _IsActionable: 1
+  _CanMove: 1
 --- !u!114 &8230247294436917546
 MonoBehaviour:
   m_ObjectHideFlags: 0

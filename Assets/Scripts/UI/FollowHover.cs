@@ -51,7 +51,6 @@ public class FollowHover : MonoBehaviour, IPanelComponent
     }
 
     void ChangePosition(MenuButton button) {
-        Debug.Log("CHANGE!");
         targetPos = new Vector3(transform.position.x, button.transform.position.y, transform.position.z);
     }
 }

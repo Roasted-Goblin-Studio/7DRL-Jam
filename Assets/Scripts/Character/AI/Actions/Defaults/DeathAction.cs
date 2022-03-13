@@ -13,8 +13,8 @@ public class DeathAction : AIAction
 
     public override void Act(StateController controller)
     {
+        controller.CharacterMovement.StopAllMovement();
         if (_TimeUntilDeathStateEnds == 0) {
-            controller.CharacterMovement.StopAllMovement();
             _TimeUntilDeathStateEnds = Time.time + _LengthOfDeathState;
         }
         

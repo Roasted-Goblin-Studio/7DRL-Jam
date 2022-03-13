@@ -31,6 +31,10 @@ public class Character : MonoBehaviour
     // Global State Manager
     private GlobalStateManager _GlobalStateManager;
 
+    // Collider Managers
+    private LegColliderManager _LegColliderManager;
+    public LegColliderManager LegColliderManager { get => _LegColliderManager; set => _LegColliderManager = value; }
+
     // Customs
     public CharacterTypes CharacterType { get => _CharacterType; set => _CharacterType = value; }
     public enum CharacterTypes {
@@ -51,6 +55,7 @@ public class Character : MonoBehaviour
 
     protected virtual void Start() {
         _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
+        _LegColliderManager = GetComponentInChildren<LegColliderManager>();
     }
 
     private void Update() {
@@ -126,6 +131,5 @@ public class Character : MonoBehaviour
 
     private void GameIsPaused(){
         _CharacterMovement.ForceStopAllMovement();
-        
     }
 }
