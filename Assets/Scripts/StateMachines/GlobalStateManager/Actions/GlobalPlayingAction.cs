@@ -7,7 +7,9 @@ public class GlobalPlayingAction : GlobalAction
 {
     protected override void GlobalAct(GlobalStateManager controller)
     {
-        // Add Enemy Spawn start
-        if(!controller.EnemySpawner.SpawnEnemyEnabled) controller.EnemySpawner.SpawnEnemyEnabled = true;
+        // Starts up Enemy Spawners
+
+        if(controller.SpawnManager == null) return;
+        if(!controller.SpawnManager.SpawnEnemyEnabled) controller.SpawnManager.StartSpawners();
     }
 }
