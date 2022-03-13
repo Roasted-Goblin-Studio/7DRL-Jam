@@ -36,7 +36,8 @@ public class HealthUI : MonoBehaviour
         int oldHealth = currentHealth;
         for (int i = 1; i <= amount; i++) 
         {
-            if (healthSlots.Count > oldHealth - i)
+            int damagedIndex = oldHealth - i;
+            if (healthSlots.Count > damagedIndex && damagedIndex >= 0)
             {
                 healthSlots[oldHealth - i].OnDamage();
             }
@@ -50,9 +51,10 @@ public class HealthUI : MonoBehaviour
         int oldHealth = currentHealth;
         for (int i = 0; i < amount; i++) 
         {
-            if (healthSlots.Count > oldHealth + i)
+            int healIndex = oldHealth + i;
+            if (healthSlots.Count > healIndex)
             {
-                healthSlots[oldHealth + i].OnHeal();
+                healthSlots[healIndex].OnHeal();
             }
         }
 
