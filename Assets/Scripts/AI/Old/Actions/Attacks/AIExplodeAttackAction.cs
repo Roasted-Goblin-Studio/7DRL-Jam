@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Attack/Kamikaze", fileName = "KamikazeAttack")]
 public class AIExplodeAttackAction : AIAttackAction
 {
     [SerializeField] private float _KamikazeDamage = 2;

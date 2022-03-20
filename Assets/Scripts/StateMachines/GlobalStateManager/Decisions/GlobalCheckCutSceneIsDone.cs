@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Decisions/Global/GlobalCheckCutSceneIsDone", fileName = "CheckCutSceneIsDone")]
+[CreateAssetMenu(menuName = "Global State Manager/Decisions/GlobalCheckCutSceneIsDone", fileName = "CheckCutSceneIsDone")]
 public class GlobalCheckCutSceneIsDone : GlobalDecision
 {
     protected override bool GlobalDecide(GlobalStateManager controller)

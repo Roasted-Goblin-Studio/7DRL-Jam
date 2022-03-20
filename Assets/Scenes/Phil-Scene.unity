@@ -29454,7 +29454,7 @@ GameObject:
   - component: {fileID: 2097712950433573917}
   - component: {fileID: 8460712969411110053}
   m_Layer: 11
-  m_Name: Enemy1-Snail
+  m_Name: Snail-2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29475,6 +29475,7 @@ MonoBehaviour:
   _StartingState: {fileID: 11400000, guid: 2f3529a091e1bca45a1eb144d45face3, type: 2}
   _RemainInState: {fileID: 11400000, guid: 6370fcd85b7513c47baa208cc7f6ce33, type: 2}
   _DeathState: {fileID: 11400000, guid: be27ead645df159439c0d8f19cb41cb4, type: 2}
+  _StartingActionState: {fileID: 0}
   _DetectArea: 1
   _TargetMask:
     serializedVersion: 2

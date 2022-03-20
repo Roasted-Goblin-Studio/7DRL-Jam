@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "AI/Actions/General/Wander", fileName = "Wander")]
 public class WanderAction : AIAction
 {
     [SerializeField] public float _WanderArea = 3f;

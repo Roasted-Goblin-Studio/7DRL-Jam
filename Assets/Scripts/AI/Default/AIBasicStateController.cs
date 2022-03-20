@@ -71,6 +71,7 @@ public class AIBasicStateController : BaseStateController
         else if((Target.transform.position.x - transform.position.x) < 0 && CharacterMovement.FacingRight) CharacterMovement.Flip();
     }
 
+
     void OnDrawGizmosSelected()
     {
         // Draw a yellow sphere at the transform's position

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Global/Playing", fileName = "Playing")]
+[CreateAssetMenu(menuName = "Global State Manager/Actions/Playing", fileName = "Playing")]
 public class GlobalPlayingAction : GlobalAction
 {
     protected override void GlobalAct(GlobalStateManager controller)

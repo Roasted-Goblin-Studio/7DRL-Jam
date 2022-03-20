@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Default/Death", fileName = "Death")]
+[CreateAssetMenu(menuName = "AI/Actions/Death", fileName = "Death")]
 public class AIBasicDeathAction : AIBasicAction
 {
     private float _LengthOfDeathState = 0;

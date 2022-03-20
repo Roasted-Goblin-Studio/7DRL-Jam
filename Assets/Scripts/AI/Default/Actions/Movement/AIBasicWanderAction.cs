@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Default/Wander", fileName = "Wander")]
+[CreateAssetMenu(menuName = "AI/Actions/Movement/Wander", fileName = "Wander")]
 public class AIBasicWanderAction : AIBasicAction
 {
     [SerializeField] public float _WanderArea = 3f;

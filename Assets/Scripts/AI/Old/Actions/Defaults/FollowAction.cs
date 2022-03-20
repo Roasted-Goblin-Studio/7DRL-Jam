@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/General/Follow", fileName = "Follow")]
 public class FollowAction : AIAction
 {
     [SerializeField] [Range(0, 10)] private float _MinDistanceToFollowHorizontally = 0;

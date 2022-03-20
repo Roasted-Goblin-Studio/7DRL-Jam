@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Decisions/Attack/Detect Player in Range Attack Range", fileName = "DetectPlayerInRangeAttackRange")]
 public class DetectRangedAttackRange : AIDecision
 {
     [SerializeField] [Range(0,25)] private float _MinAttackRange;

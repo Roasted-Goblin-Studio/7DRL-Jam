@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Default/Idle", fileName = "Idle")]
+[CreateAssetMenu(menuName = "AI/Actions/Movement/Idle", fileName = "Idle")]
 public class AIBasicIdleAction : AIBasicAction
 {
     protected override void AIAct(AIBasicStateController controller){

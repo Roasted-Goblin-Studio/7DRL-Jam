@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/State", fileName = "State")]
 public class AIState : ScriptableObject
 {
     public AIAction[] AIActions;
