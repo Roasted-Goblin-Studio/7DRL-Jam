@@ -73,7 +73,6 @@ public class StateController : MonoBehaviour
         _ExplodeSensor = GetComponentInChildren<ExplodeSensor>();
         _ExplodeRangeSensor = GetComponentInChildren<ExplodeRangeSensor>();
 
-
         // Lower priority
         _GameObject = gameObject;
         _CurrentMacroState = _StartingState;
