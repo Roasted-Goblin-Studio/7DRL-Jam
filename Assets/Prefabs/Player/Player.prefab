@@ -469,7 +469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3987479418796427630}
   - component: {fileID: 3987479419746471550}
-  - component: {fileID: 3987479419746471549}
   - component: {fileID: 3987479419746471548}
   - component: {fileID: 3987479419746471491}
   - component: {fileID: 3987479419746471490}
@@ -477,7 +476,6 @@ GameObject:
   - component: {fileID: 3987479419746471495}
   - component: {fileID: 3987479419746471551}
   - component: {fileID: 3930942249676555774}
-  - component: {fileID: 122187534}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -526,22 +524,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3987479419746471549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3987479419746471494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e17a450d4bb6774c863df0fd7c09846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CharacterType: 1
-  _CharacterHitbox: {fileID: 3987479419191238377}
-  _IsActionable: 1
-  _CanMove: 1
 --- !u!114 &3987479419746471548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +542,7 @@ MonoBehaviour:
   _MovementDownKeyCode: 115
   _PauseKeyCode: 8
   _InteractKeyCode: 101
+  _QuitKeyCode: 27
 --- !u!114 &3987479419746471491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,18 +658,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _TargetTag: Enemy
---- !u!114 &122187534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3987479419746471494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff644687c4cae4d4d8f6119066a942f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3987479419777435572
 GameObject:
   m_ObjectHideFlags: 0

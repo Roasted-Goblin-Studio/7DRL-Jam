@@ -67,6 +67,6 @@ public class CharacterHealth : Health
         if (_Character) _Character.IsAlive = false;
         if (_Animator) _Animator.SetTrigger("die");
 
-        _Character.LegColliderManager.DisableCollider();
+        // _Character.LegColliderManager.DisableCollider();
     }
 }
