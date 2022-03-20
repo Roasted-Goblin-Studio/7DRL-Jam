@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WanderArea: 3
   _WanderTime: 2
-  _DebugMode: 0
+  _DebugMode: 1
   _WanderAreaNoMoveZone: 0.75
   _ObstacleBoxCheckSize: {x: 2, y: 2}
   _ObstacleMask:

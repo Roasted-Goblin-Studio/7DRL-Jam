@@ -20,7 +20,6 @@ public class AIBasicStateController : BaseStateController
     protected Collider2D _TargetCollider;
     protected GameObject _TargetGameObject;
 
-
     [Header("Character Components")]
     protected CharacterMovement _CharacterMovement;
     protected Character _Character;
@@ -29,6 +28,12 @@ public class AIBasicStateController : BaseStateController
 
     [Header("AI State Flags")]
     protected bool _TargetSet = false;
+
+    [Header("AI Timers")]
+    protected float _ActionCheckTime = 0;
+
+    [Header("AI Targets")]
+    public Vector3 ActionTarget;
 
     // #~#~# PUBLIC #~#~#
     public CharacterMovement CharacterMovement { get => _CharacterMovement; set => _CharacterMovement = value; }
@@ -41,7 +46,7 @@ public class AIBasicStateController : BaseStateController
     public GameObject TagetGameObject { get => _TargetGameObject; set => _TargetGameObject = value; }
 
     public bool TargetSet { get => _TargetSet; set => _TargetSet = value; }
-
+    public float ActionCheckTime { get => _ActionCheckTime; set => _ActionCheckTime = value; }
 
     protected override void HandleAwakeTasks()
     {
