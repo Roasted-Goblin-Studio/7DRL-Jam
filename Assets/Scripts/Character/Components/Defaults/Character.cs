@@ -120,13 +120,11 @@ public class Character : MonoBehaviour
     private void PauseGame(){
         Lock();
         _GlobalStateManager.GameIsPaused = true;
-        Debug.Log("Pausing game");
     }
 
     private void UnpauseGame(){
         Unlock();
         _GlobalStateManager.GameIsPaused = false;
-        Debug.Log("UnPausing game");
     }
 
     private void GameIsPaused(){
