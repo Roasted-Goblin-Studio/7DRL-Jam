@@ -92,6 +92,7 @@ public class Character : MonoBehaviour
     }
 
     private void HandlePauseInput(){
+        return;
         if(_GlobalStateManager.GameIsPaused && !_GameIsPaused){
             PauseGame();
             _GameIsPaused = true;

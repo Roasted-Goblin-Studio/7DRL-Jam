@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoneThrow : Weapon
 {
     private int _SelfDamage = 1;
+    private bool _HeadThrown = false;
 
     protected override void UseWeapon()
     {
@@ -20,13 +21,13 @@ public class BoneThrow : Weapon
             characterAnimator.SetTrigger("rangedAttack");
             SpawnProjectile(Projectile.ProjectileTypes.Bone);
         }
-        else
+        else if (!_HeadThrown)
         {
+            _HeadThrown = true;
             var head = SpawnProjectile(Projectile.ProjectileTypes.Skull);
             head.GetComponent<Animator>().SetBool("headSpin", true);
             characterAnimator.SetTrigger("headToss");
         }
-
     }
 
     private GameObject SpawnProjectile(Projectile.ProjectileTypes type){

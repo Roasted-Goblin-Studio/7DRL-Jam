@@ -15,7 +15,6 @@ public class BoneProjectile : Projectile
     {
         if (ProjectileType == ProjectileTypes.Skull)
         {
-            // instantiate skull
             if (_Skull) Instantiate(_Skull, gameObject.transform.position, Quaternion.identity);
         }
         base.DestroyProjectile();

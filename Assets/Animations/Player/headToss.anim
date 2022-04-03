@@ -37,18 +37,6 @@ AnimationClip:
       value: {fileID: 5547828124755308372, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
     - time: 0.6666667
       value: {fileID: -9125685370671591964, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 0.75
-      value: {fileID: -1082562654206029981, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 0.8333333
-      value: {fileID: 8390711857482247829, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 0.9166667
-      value: {fileID: -4670686081806708136, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 1
-      value: {fileID: 8800148786415751399, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 1.0833334
-      value: {fileID: 5731168976556544514, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - time: 1.1666666
-      value: {fileID: -2142265615051433027, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -77,18 +65,12 @@ AnimationClip:
     - {fileID: 1849518296737160356, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
     - {fileID: 5547828124755308372, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
     - {fileID: -9125685370671591964, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: -1082562654206029981, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: 8390711857482247829, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: -4670686081806708136, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: 8800148786415751399, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: 5731168976556544514, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
-    - {fileID: -2142265615051433027, guid: 1d9d292260a835546a4b9ed7b6bbc1d5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -117,13 +99,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.33333334
     functionName: Throw
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.75
-    functionName: Grow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
