@@ -65,10 +65,10 @@ MonoBehaviour:
   _ProjectileType: 0
   _FriendlyLayers:
     serializedVersion: 2
-    m_Bits: 141312
+    m_Bits: 206848
   _EnemyLayers:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 266240
 --- !u!50 &2600414436229915158
 Rigidbody2D:
   serializedVersion: 4

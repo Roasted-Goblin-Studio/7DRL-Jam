@@ -29,7 +29,9 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _GlobalStateManager = GameObject.Find("GlobalStateManager").GetComponent<GlobalStateManager>();
+
+        GameObject GlobalStateManagerGameObject = GameObject.Find("GlobalStateManager");
+        if(GlobalStateManagerGameObject != null) _GlobalStateManager = GlobalStateManagerGameObject.GetComponent<GlobalStateManager>();
     }
 
     // Update is called once per frame
@@ -46,11 +48,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy(){
-        if(_GlobalStateManager.GameIsPaused) return;
+        if(_GlobalStateManager != null) if(_GlobalStateManager.GameIsPaused) return;
+        
         if(_RandomizeEnemySpawnPoint){
             int RandomSelection = Random.Range(0, SpawnPositions.Count);
             if(RandomSelection == _RandomizeEnemeyLastSpawnIndex) RandomSelection++;
-            if(RandomSelection > SpawnPositions.Count) RandomSelection = SpawnPositions.Count;
+            if(RandomSelection >= SpawnPositions.Count) RandomSelection = SpawnPositions.Count;
 
             Transform SpawnPosition = SpawnPositions[RandomSelection];
             
@@ -58,13 +61,14 @@ public class EnemySpawner : MonoBehaviour
             clone.transform.parent = null;   
 
             _RandomizeEnemeyLastSpawnIndex = RandomSelection;  
+            _NumberOfEnemiesSpawned+=1;
         }else{
             foreach (var SpawnPosition in SpawnPositions)
             {
                 GameObject clone = Instantiate(EnemyObject, SpawnPosition);
                 clone.transform.parent = null;
+                _NumberOfEnemiesSpawned+=1;
             }
         }
-        _NumberOfEnemiesSpawned+=1;
     }
 }

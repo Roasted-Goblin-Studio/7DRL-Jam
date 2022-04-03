@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/State/Base", fileName = "State")]
+[CreateAssetMenu(menuName = "Default/State", fileName = "State")]
 public class BaseState : ScriptableObject
 {
     public BaseAction[] AIActions;

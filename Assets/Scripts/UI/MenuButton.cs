@@ -43,7 +43,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (isEnabled) 
         {
             //Output to console the GameObject's name and the following message
-            Debug.Log("Cursor Entering " + name + " GameObject");
             onMenuButtonHover?.Invoke(this);
         }
     }
@@ -52,6 +51,5 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         //Output the following message with the GameObject's name
-        Debug.Log("Cursor Exiting " + name + " GameObject");
     }
 }

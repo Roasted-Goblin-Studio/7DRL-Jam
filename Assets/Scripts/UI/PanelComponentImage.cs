@@ -10,6 +10,7 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
     float initialFullLerpDuration = 2f;
     
     private Image image;
+    private bool isEnabled = true;
 
     IEnumerator Lerp(float duration, float target)
     {
@@ -30,6 +31,7 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
 
     public void EnableComponent(bool initialSet) 
     {
+        isEnabled = true;
         if (initialSet) 
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
@@ -43,6 +45,7 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
 
     public void DisableComponent(bool initialSet) 
     {
+        isEnabled = false;
         if (initialSet) 
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
@@ -62,7 +65,10 @@ public class PanelComponentImage : MonoBehaviour, IPanelComponent
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isEnabled)
+        {
+            EnableComponent(true);
+        }
     }
 
     // Update is called once per frame

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Cut Scene/Dialogue Action", fileName = "Dialogue")]
+[CreateAssetMenu(menuName = "Cut Scene/Actions//Dialogue Action", fileName = "Dialogue")]
 public class CutSceneDialogueAction : BaseAction
 {
     [SerializeField] private List<Dialogue> _Dialogues;

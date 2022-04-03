@@ -16,9 +16,9 @@ public class GlobalStateManager : BaseStateController
     public bool RoomHasCutScene { get => _RoomHasCutScene; set => _RoomHasCutScene = value; }
     public CutSceneManager CutSceneManager { get => _CutSceneManager; set => _CutSceneManager = value; }
 
-    [Header("EnemySpawners")]
-    [SerializeField]  private EnemySpawner _EnemySpawner;
-    public EnemySpawner EnemySpawner { get => _EnemySpawner; set => _EnemySpawner = value; }
+    [Header("SpawnManagers")]
+    [SerializeField]  private SpawnManager _SpawnManager;
+    public SpawnManager SpawnManager { get => _SpawnManager; set => _SpawnManager = value; }
 
     [Header("Pause Menu")]
     private bool _GameIsPaused = false;
@@ -33,13 +33,32 @@ public class GlobalStateManager : BaseStateController
     protected override void HandleStartTasks()
     {
         base.HandleStartTasks();
-        CutSceneManager = GameObject.Find("CutScene Manager").GetComponent<CutSceneManager>();
-        EnemySpawner = GameObject.Find("Snail-1.Spawn").GetComponent<EnemySpawner>();  
+        
         _Player = GameObject.Find("Player");
+        LoadCutSceneManager();
+        LoadSpawnerManager();
     }
 
     protected override void HandleLowPriorityTasks(){
         base.HandleLowPriorityTasks();
     }
-    
+
+    public void LoadNextState(){
+        GameObject playerSpawnPointGameObject = GameObject.Find("Player SpawnPoint");
+        if(playerSpawnPointGameObject != null && _Player != null) _Player.transform.position = playerSpawnPointGameObject.transform.position; 
+        
+        RoomHasCutScene = false;
+        LoadCutSceneManager();
+        LoadSpawnerManager();
+    }
+
+    private void LoadCutSceneManager(){
+        GameObject CutSceneManagerGameObject = GameObject.Find("CutScene Manager");
+        if(CutSceneManagerGameObject != null) CutSceneManager = CutSceneManagerGameObject.GetComponent<CutSceneManager>();
+    }
+
+    private void LoadSpawnerManager(){
+        GameObject SpawnManagerGameObject = GameObject.Find("SpawnManager");
+        if(SpawnManagerGameObject != null) SpawnManager = SpawnManagerGameObject.GetComponent<SpawnManager>();
+    }
 }

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8944343726510873531
 Transform:
   m_ObjectHideFlags: 0
@@ -46,6 +46,5 @@ MonoBehaviour:
   _StartingState: {fileID: 11400000, guid: b65cbaa9f9268d845953b4968acddbbb, type: 2}
   _RemainInState: {fileID: 11400000, guid: 6370fcd85b7513c47baa208cc7f6ce33, type: 2}
   _RoomIsActive: 0
-  _RoomHasCutScene: 1
-  SpawnerNames:
-  - Snail-1.Spawn
+  _RoomHasCutScene: 0
+  _SpawnManager: {fileID: 0}

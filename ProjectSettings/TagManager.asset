@@ -9,6 +9,7 @@ TagManager:
   - Non Hitable
   - Enemy
   - HitBox
+  - ProjectileWalls
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - 
   - Walls
   - NotHittable
-  - 
+  - ProjectileWalls
   - 
   - 
   - 
@@ -63,4 +64,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 854790899
+    locked: 0
+  - name: UI
+    uniqueID: 3546008727
     locked: 0

@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 1539663984497765326}
   - component: {fileID: 505566498}
   - component: {fileID: 3138203408325665445}
+  - component: {fileID: -1445247015251430896}
   m_Layer: 11
   m_Name: Enemy3-Eye
   m_TagString: Enemy
@@ -256,6 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 2
   _CharacterHitbox: {fileID: 6311076047010142311}
+  _IsActionable: 1
+  _CanMove: 1
 --- !u!114 &505566498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,8 +291,22 @@ MonoBehaviour:
   - {fileID: 555817063}
   - {fileID: 1928441276}
   _EnemyName: Small Eyes
+  _SpawnEnemiesEnabled: 1
+  _MaxEnemiesSpawned: 0
   _TimeBetweenSpawns: 10
-  _SpawnEnemies: 0
+  _RandomizeEnemySpawnPoint: 0
+--- !u!114 &-1445247015251430896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798318783793672746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8efc7407b23c145b4d67087c1997d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5798318783972523956
 GameObject:
   m_ObjectHideFlags: 0

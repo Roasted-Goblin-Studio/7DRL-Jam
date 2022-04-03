@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour
 {
+    public LevelMusicManager end;
+
     FMOD.Studio.EventInstance Walk;
     FMOD.Studio.EventInstance Melee_Swing;
     FMOD.Studio.EventInstance Melee_Impact;
@@ -60,6 +62,8 @@ public class PlayerAudio : MonoBehaviour
     void Die()
     {
         Death.start();
+        end.StopMusic();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Music/Death_Sting");
     }
 
     void Scream()

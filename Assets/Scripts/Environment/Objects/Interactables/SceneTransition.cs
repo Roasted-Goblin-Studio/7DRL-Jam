@@ -8,6 +8,12 @@ public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private string _TargetScene;
     [SerializeField] private Transform _SpawnPoint;
+    private GlobalStateManager _GlobalStateManager;
+
+    private void Start() {
+        GameObject GlobalStateManagerGameObject = GameObject.Find("GlobalStateManager");
+        if(GlobalStateManagerGameObject != null) _GlobalStateManager = GlobalStateManagerGameObject.GetComponent<GlobalStateManager>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,9 +24,8 @@ public class SceneTransition : MonoBehaviour
     {
         // add fader
         SceneManager.LoadScene(_TargetScene);
-
-        Debug.Log(SceneManager.GetActiveScene().name);
-
-        if (_SpawnPoint) gameObject.transform.position = _SpawnPoint.position;
+        if(_GlobalStateManager != null) _GlobalStateManager.LoadNextState();
+        // Debug.Log(SceneManager.GetActiveScene().name);
+        // if (_SpawnPoint) gameObject.transform.position = _SpawnPoint.position;
     }
 }

@@ -15,29 +15,15 @@ MonoBehaviour:
   _Dialogues:
   - _Dialogue: This is text
     _Speaker: Ribs
-    _DurationofText: 3
+    _DurationofText: 1
     _Target: Player
     _TargetStartingOffset: {x: 3, y: 0, z: 0}
     _DestroyTargetOnFinish: 0
     _TargetFacingRight: 0
   - _Dialogue: This is more text
     _Speaker: Necormancer
-    _DurationofText: 3
+    _DurationofText: 1
     _Target: Enemy5-Necromancer
     _TargetStartingOffset: {x: -3, y: 0, z: 0}
     _DestroyTargetOnFinish: 1
     _TargetFacingRight: 1
-  - _Dialogue: Blah Blah Blah
-    _Speaker: Ribs
-    _DurationofText: 3
-    _Target: Player
-    _TargetStartingOffset: {x: 0, y: 0, z: 0}
-    _DestroyTargetOnFinish: 0
-    _TargetFacingRight: 0
-  - _Dialogue: No You!
-    _Speaker: Necormancer
-    _DurationofText: 3
-    _Target: Enemy5-Necormancer
-    _TargetStartingOffset: {x: 0, y: 0, z: 0}
-    _DestroyTargetOnFinish: 0
-    _TargetFacingRight: 0

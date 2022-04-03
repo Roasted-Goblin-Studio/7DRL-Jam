@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Decisions/Cut Scene/Check that CutScene Started", fileName = "CheckIfStarted")]
+[CreateAssetMenu(menuName = "Cut Scene/Decisions/Check that CutScene Started", fileName = "CheckIfStarted")]
 public class CutSceneDecideIfStartFinished : BaseDecision
 {
     public override bool Decide(BaseStateController controller)

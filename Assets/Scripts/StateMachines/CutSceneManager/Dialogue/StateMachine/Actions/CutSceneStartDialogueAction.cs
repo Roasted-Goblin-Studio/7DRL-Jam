@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Cut Scene/Start", fileName = "Start")]
+[CreateAssetMenu(menuName = "Cut Scene/Actions/Start", fileName = "Start")]
 public class CutSceneStartDialogueAction : BaseAction
 {
     public override void Act(BaseStateController controller)
